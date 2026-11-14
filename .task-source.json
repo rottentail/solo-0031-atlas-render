@@ -1,0 +1,6388 @@
+{
+  "task_source_schema_version": 1,
+  "cc_feedback_profile": "cc-feedback-2611",
+  "project_domain": "游戏、图形与多媒体",
+  "project_subdirection": "图形渲染",
+  "supported_task_types": [
+    "功能开发",
+    "代码重构",
+    "功能优化",
+    "依赖升级与迁移",
+    "质量保障",
+    "项目维护",
+    "技术讨论",
+    "问题排查与诊断",
+    "部署运维",
+    "泛Agent需求"
+  ],
+  "type_coverage": {
+    "功能开发": {
+      "status": "supported",
+      "reason": "具备真实图形渲染工作流、跨状态约束与可执行验证；具体活动容量由冻结后的逐题难度与去重门禁决定",
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go",
+        "internal/persist/store.go"
+      ]
+    },
+    "代码重构": {
+      "status": "supported",
+      "reason": "具备真实图形渲染工作流、跨状态约束与可执行验证；具体活动容量由冻结后的逐题难度与去重门禁决定",
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go",
+        "internal/persist/store.go"
+      ]
+    },
+    "功能优化": {
+      "status": "supported",
+      "reason": "具备真实图形渲染工作流、跨状态约束与可执行验证；具体活动容量由冻结后的逐题难度与去重门禁决定",
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go",
+        "internal/persist/store.go"
+      ]
+    },
+    "依赖升级与迁移": {
+      "status": "supported",
+      "reason": "具备真实图形渲染工作流、跨状态约束与可执行验证；具体活动容量由冻结后的逐题难度与去重门禁决定",
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go",
+        "internal/persist/store.go"
+      ]
+    },
+    "质量保障": {
+      "status": "supported",
+      "reason": "具备真实图形渲染工作流、跨状态约束与可执行验证；具体活动容量由冻结后的逐题难度与去重门禁决定",
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go",
+        "internal/persist/store.go"
+      ]
+    },
+    "项目维护": {
+      "status": "supported",
+      "reason": "具备真实图形渲染工作流、跨状态约束与可执行验证；具体活动容量由冻结后的逐题难度与去重门禁决定",
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go",
+        "internal/persist/store.go"
+      ]
+    },
+    "技术讨论": {
+      "status": "supported",
+      "reason": "具备真实图形渲染工作流、跨状态约束与可执行验证；具体活动容量由冻结后的逐题难度与去重门禁决定",
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go",
+        "internal/persist/store.go"
+      ]
+    },
+    "问题排查与诊断": {
+      "status": "supported",
+      "reason": "具备真实图形渲染工作流、跨状态约束与可执行验证；具体活动容量由冻结后的逐题难度与去重门禁决定",
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go",
+        "internal/persist/store.go"
+      ]
+    },
+    "部署运维": {
+      "status": "supported",
+      "reason": "具备真实图形渲染工作流、跨状态约束与可执行验证；具体活动容量由冻结后的逐题难度与去重门禁决定",
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go",
+        "internal/persist/store.go"
+      ]
+    },
+    "泛Agent需求": {
+      "status": "supported",
+      "reason": "具备真实图形渲染工作流、跨状态约束与可执行验证；具体活动容量由冻结后的逐题难度与去重门禁决定",
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go",
+        "internal/persist/store.go"
+      ]
+    },
+    "Bugfix": {
+      "status": "no_verified_defect",
+      "reason": "基线未预埋缺陷；尚无确认的可复现或代码证明契约违例，不生成Bugfix题"
+    }
+  },
+  "prompt_contract": {
+    "schema_version": 1,
+    "mode": "integrated",
+    "baseline_tier": "deep-task-ready",
+    "generation_scope": {
+      "mode": "all_supported"
+    },
+    "minimum_active_prompts": {
+      "功能开发": 10,
+      "代码重构": 10,
+      "功能优化": 10,
+      "依赖升级与迁移": 10,
+      "质量保障": 10,
+      "项目维护": 10,
+      "技术讨论": 10,
+      "问题排查与诊断": 10,
+      "部署运维": 10,
+      "泛Agent需求": 10
+    },
+    "minimum_anchors": {
+      "功能开发": 15,
+      "代码重构": 15,
+      "功能优化": 15,
+      "依赖升级与迁移": 15,
+      "质量保障": 15,
+      "项目维护": 15,
+      "技术讨论": 15,
+      "问题排查与诊断": 15,
+      "部署运维": 15,
+      "泛Agent需求": 15
+    },
+    "capacity_floor": {
+      "modules": 8,
+      "workflows": 10,
+      "mechanisms": 8,
+      "entities": 8,
+      "state_machines": 5,
+      "extension_seams": 12,
+      "tension_points": 10
+    }
+  },
+  "entities": [
+    {
+      "id": "scene",
+      "label": "场景",
+      "relations": [
+        "scene.contains.layer"
+      ],
+      "invariants": [
+        "修订号持续递增"
+      ]
+    },
+    {
+      "id": "layer",
+      "label": "图层",
+      "relations": [
+        "layer.uses.transform",
+        "layer.uses.paint",
+        "layer.references.asset"
+      ],
+      "invariants": [
+        "标识在文档内唯一",
+        "有序绘制"
+      ]
+    },
+    {
+      "id": "transform",
+      "label": "变换",
+      "relations": [
+        "transform.belongs_to.layer"
+      ],
+      "invariants": [
+        "可逆且有界"
+      ]
+    },
+    {
+      "id": "paint",
+      "label": "颜料",
+      "relations": [
+        "paint.belongs_to.layer"
+      ],
+      "invariants": [
+        "颜色有效且渐变端点不重合"
+      ]
+    },
+    {
+      "id": "asset",
+      "label": "素材",
+      "relations": [
+        "asset.captured_by.snapshot"
+      ],
+      "invariants": [
+        "同ID内容不可替换"
+      ]
+    },
+    {
+      "id": "snapshot",
+      "label": "快照",
+      "relations": [
+        "snapshot.derived_from.scene"
+      ],
+      "invariants": [
+        "固定引用闭包"
+      ]
+    },
+    {
+      "id": "job",
+      "label": "任务",
+      "relations": [
+        "job.pins.snapshot",
+        "job.produces.artifact"
+      ],
+      "invariants": [
+        "单一终态",
+        "尝试单调增加"
+      ]
+    },
+    {
+      "id": "artifact",
+      "label": "结果",
+      "relations": [
+        "artifact.belongs_to.job"
+      ],
+      "invariants": [
+        "摘要对应结果字节"
+      ]
+    },
+    {
+      "id": "receipt",
+      "label": "收据",
+      "relations": [
+        "receipt.points_to.job"
+      ],
+      "invariants": [
+        "同键语义一致"
+      ]
+    },
+    {
+      "id": "event",
+      "label": "事件",
+      "relations": [
+        "event.references.subject"
+      ],
+      "invariants": [
+        "序号单调增加"
+      ]
+    }
+  ],
+  "state_machines": [
+    {
+      "subject": "scene",
+      "states": [
+        "active",
+        "archived"
+      ],
+      "transitions": [
+        "active->archived",
+        "archived->active"
+      ],
+      "invariants": [
+        "归档时禁止新冻结"
+      ]
+    },
+    {
+      "subject": "asset",
+      "states": [
+        "available",
+        "retired"
+      ],
+      "transitions": [
+        "available->retired"
+      ],
+      "invariants": [
+        "退役不修改已有快照"
+      ]
+    },
+    {
+      "subject": "snapshot",
+      "states": [
+        "active",
+        "revoked"
+      ],
+      "transitions": [
+        "active->revoked"
+      ],
+      "invariants": [
+        "撤回不修改已接收任务"
+      ]
+    },
+    {
+      "subject": "job",
+      "states": [
+        "queued",
+        "running",
+        "succeeded",
+        "failed",
+        "cancelled"
+      ],
+      "transitions": [
+        "queued->running",
+        "queued->cancelled",
+        "running->succeeded",
+        "running->failed",
+        "running->cancelled",
+        "running->queued on process recovery",
+        "failed->queued",
+        "cancelled->queued"
+      ],
+      "invariants": [
+        "单一终态且尝试隔离"
+      ]
+    },
+    {
+      "subject": "artifact",
+      "states": [
+        "live",
+        "purged"
+      ],
+      "transitions": [
+        "live->purged"
+      ],
+      "invariants": [
+        "清理保留成功任务事实"
+      ]
+    }
+  ],
+  "capability_families": [
+    {
+      "family": "图层合成",
+      "occupied_by": [
+        "composition"
+      ],
+      "available": true
+    },
+    {
+      "family": "坐标变换",
+      "occupied_by": [
+        "affine"
+      ],
+      "available": true
+    },
+    {
+      "family": "嵌套裁剪",
+      "occupied_by": [
+        "clipping"
+      ],
+      "available": true
+    },
+    {
+      "family": "渐变和透明度",
+      "occupied_by": [
+        "paint"
+      ],
+      "available": true
+    },
+    {
+      "family": "位图素材",
+      "occupied_by": [
+        "asset"
+      ],
+      "available": true
+    },
+    {
+      "family": "素材引用闭包",
+      "occupied_by": [
+        "retirement"
+      ],
+      "available": true
+    },
+    {
+      "family": "场景修订",
+      "occupied_by": [
+        "revision"
+      ],
+      "available": true
+    },
+    {
+      "family": "场景归档",
+      "occupied_by": [
+        "archive"
+      ],
+      "available": true
+    },
+    {
+      "family": "快照冻结",
+      "occupied_by": [
+        "freeze"
+      ],
+      "available": true
+    },
+    {
+      "family": "快照撤回",
+      "occupied_by": [
+        "revoke"
+      ],
+      "available": true
+    },
+    {
+      "family": "任务幂等",
+      "occupied_by": [
+        "dedup"
+      ],
+      "available": true
+    },
+    {
+      "family": "渲染预算",
+      "occupied_by": [
+        "budget"
+      ],
+      "available": true
+    },
+    {
+      "family": "执行终态竞争",
+      "occupied_by": [
+        "cancel"
+      ],
+      "available": true
+    },
+    {
+      "family": "尝试隔离",
+      "occupied_by": [
+        "retry"
+      ],
+      "available": true
+    },
+    {
+      "family": "中断恢复",
+      "occupied_by": [
+        "restart"
+      ],
+      "available": true
+    },
+    {
+      "family": "交换包导入",
+      "occupied_by": [
+        "package"
+      ],
+      "available": true
+    },
+    {
+      "family": "结果生命周期",
+      "occupied_by": [
+        "purge"
+      ],
+      "available": true
+    },
+    {
+      "family": "像素比较",
+      "occupied_by": [
+        "difference"
+      ],
+      "available": true
+    },
+    {
+      "family": "事件序列",
+      "occupied_by": [
+        "journal"
+      ],
+      "available": true
+    },
+    {
+      "family": "原子状态替换",
+      "occupied_by": [
+        "storage"
+      ],
+      "available": true
+    }
+  ],
+  "extension_seams": [
+    {
+      "id": "composition",
+      "anchor": "图层合成",
+      "entry": "submit-render",
+      "distinct_outcome": "可恢复分块输出",
+      "mechanism": "snapshot_consistency",
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ]
+    },
+    {
+      "id": "affine",
+      "anchor": "坐标变换",
+      "entry": "create-scene",
+      "distinct_outcome": "矢量描边能力",
+      "mechanism": "policy_rules",
+      "source_anchors": [
+        "internal/geometry/affine.go",
+        "internal/raster/plan.go"
+      ]
+    },
+    {
+      "id": "clipping",
+      "anchor": "嵌套裁剪",
+      "entry": "submit-render",
+      "distinct_outcome": "可复用局部蒙版",
+      "mechanism": "lineage",
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ]
+    },
+    {
+      "id": "paint",
+      "anchor": "渐变和透明度",
+      "entry": "submit-render",
+      "distinct_outcome": "隔离组透明度",
+      "mechanism": "policy_rules",
+      "source_anchors": [
+        "internal/paint/color.go",
+        "internal/raster/render.go"
+      ]
+    },
+    {
+      "id": "asset",
+      "anchor": "位图素材",
+      "entry": "import-asset",
+      "distinct_outcome": "多帧图集生成",
+      "mechanism": "resource_lifecycle",
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/codec/png.go"
+      ]
+    },
+    {
+      "id": "retirement",
+      "anchor": "素材引用闭包",
+      "entry": "retire-asset",
+      "distinct_outcome": "素材替换分支",
+      "mechanism": "lineage",
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/service/scenes.go"
+      ]
+    },
+    {
+      "id": "revision",
+      "anchor": "场景修订",
+      "entry": "revise-scene",
+      "distinct_outcome": "修订分支合并",
+      "mechanism": "concurrency",
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/store.go"
+      ]
+    },
+    {
+      "id": "archive",
+      "anchor": "场景归档",
+      "entry": "archive-scene",
+      "distinct_outcome": "命名渲染变体",
+      "mechanism": "state_machine",
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/httpapi/scenes.go"
+      ]
+    },
+    {
+      "id": "freeze",
+      "anchor": "快照冻结",
+      "entry": "freeze-scene",
+      "distinct_outcome": "矢量结果导出",
+      "mechanism": "export_freeze",
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/validate.go"
+      ]
+    },
+    {
+      "id": "revoke",
+      "anchor": "快照撤回",
+      "entry": "revoke-snapshot",
+      "distinct_outcome": "快照差异预览",
+      "mechanism": "state_machine",
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/service/jobs.go"
+      ]
+    },
+    {
+      "id": "dedup",
+      "anchor": "任务幂等",
+      "entry": "submit-render",
+      "distinct_outcome": "跨任务去重结果",
+      "mechanism": "idempotency",
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/persist/validate.go"
+      ]
+    },
+    {
+      "id": "budget",
+      "anchor": "渲染预算",
+      "entry": "submit-render",
+      "distinct_outcome": "带预算的多尺寸输出",
+      "mechanism": "capacity",
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go"
+      ]
+    },
+    {
+      "id": "cancel",
+      "anchor": "执行终态竞争",
+      "entry": "cancel-render",
+      "distinct_outcome": "任务依赖编排",
+      "mechanism": "concurrency",
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ]
+    },
+    {
+      "id": "retry",
+      "anchor": "尝试隔离",
+      "entry": "retry-render",
+      "distinct_outcome": "任务检查点续算",
+      "mechanism": "recovery_rollback",
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ]
+    },
+    {
+      "id": "restart",
+      "anchor": "中断恢复",
+      "entry": "recover-render",
+      "distinct_outcome": "多进程执行租约",
+      "mechanism": "recovery_rollback",
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/persist/store.go"
+      ]
+    },
+    {
+      "id": "package",
+      "anchor": "交换包导入",
+      "entry": "import-package",
+      "distinct_outcome": "批量场景包交换",
+      "mechanism": "export_freeze",
+      "source_anchors": [
+        "internal/bundle/package.go",
+        "internal/service/packages.go"
+      ]
+    },
+    {
+      "id": "purge",
+      "anchor": "结果生命周期",
+      "entry": "purge-artifact",
+      "distinct_outcome": "结果保留策略",
+      "mechanism": "delete_removal",
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/httpapi/jobs.go"
+      ]
+    },
+    {
+      "id": "difference",
+      "anchor": "像素比较",
+      "entry": "compare-renders",
+      "distinct_outcome": "视觉阈值判定",
+      "mechanism": "snapshot_consistency",
+      "source_anchors": [
+        "internal/observe/report.go",
+        "internal/codec/png.go"
+      ]
+    },
+    {
+      "id": "journal",
+      "anchor": "事件序列",
+      "entry": "observe-service",
+      "distinct_outcome": "渲染来源证明",
+      "mechanism": "versioning_audit",
+      "source_anchors": [
+        "internal/model/types.go",
+        "internal/observe/report.go"
+      ]
+    },
+    {
+      "id": "storage",
+      "anchor": "原子状态替换",
+      "entry": "recover-render",
+      "distinct_outcome": "增量状态日志",
+      "mechanism": "recovery_rollback",
+      "source_anchors": [
+        "internal/persist/store.go",
+        "internal/persist/validate.go"
+      ]
+    }
+  ],
+  "tension_points": [
+    {
+      "workflow_id": "create-scene",
+      "description": "图层可表达性与有界几何必须共同成立",
+      "observable_failure": "非法场景被保存或已有场景被覆盖"
+    },
+    {
+      "workflow_id": "revise-scene",
+      "description": "并行编辑的最后写入不能抹掉已提交版本",
+      "observable_failure": "旧版本覆盖当前场景"
+    },
+    {
+      "workflow_id": "archive-scene",
+      "description": "停止新生产与保留场景内容之间的边界",
+      "observable_failure": "归档后仍生成快照或恢复丢失内容"
+    },
+    {
+      "workflow_id": "import-asset",
+      "description": "素材标识稳定与内容不可替换之间的约束",
+      "observable_failure": "同ID内容漂移使后续场景含义变化"
+    },
+    {
+      "workflow_id": "retire-asset",
+      "description": "上游素材停止使用不能改变已接受快照的引用闭包",
+      "observable_failure": "历史渲染受素材退役影响"
+    },
+    {
+      "workflow_id": "freeze-scene",
+      "description": "可编辑文档与冻结内容之间的隔离",
+      "observable_failure": "后续修订改变既有快照摘要"
+    },
+    {
+      "workflow_id": "revoke-snapshot",
+      "description": "撤回阻止新工作与保留已有承诺之间的界限",
+      "observable_failure": "已接受任务被撤回改变或新任务绕过撤回"
+    },
+    {
+      "workflow_id": "submit-render",
+      "description": "同键重放的结果稳定与请求语义必须一致",
+      "observable_failure": "重复提交生成不同任务或不同缩放被当成同一请求"
+    },
+    {
+      "workflow_id": "cancel-render",
+      "description": "结果写入与取消提交必须竞争同一终态",
+      "observable_failure": "取消后仍出现成功结果"
+    },
+    {
+      "workflow_id": "retry-render",
+      "description": "新尝试与旧执行器完成之间的隔离",
+      "observable_failure": "旧尝试覆盖新尝试状态"
+    },
+    {
+      "workflow_id": "recover-render",
+      "description": "重新执行与结果只提交一次之间的约束",
+      "observable_failure": "中断任务永久悬挂或得到不同内容"
+    },
+    {
+      "workflow_id": "export-package",
+      "description": "交换可携带性与内容可验证性之间的约束",
+      "observable_failure": "包离开源服务后缺少位图内容"
+    },
+    {
+      "workflow_id": "import-package",
+      "description": "共享素材复用与目标数据保护之间的边界",
+      "observable_failure": "导入失败后遗留部分场景或素材"
+    },
+    {
+      "workflow_id": "compare-renders",
+      "description": "字节编码差别与像素语义差别的区分",
+      "observable_failure": "把不同编码误判为视觉变化或忽略实际变化"
+    },
+    {
+      "workflow_id": "purge-artifact",
+      "description": "释放结果资源与保留任务事实之间的边界",
+      "observable_failure": "清理让成功任务变成未完成或继续泄露结果"
+    },
+    {
+      "workflow_id": "observe-service",
+      "description": "有限事件保留与单调事件编号之间的约束",
+      "observable_failure": "事件截断后编号重用或状态统计失真"
+    }
+  ],
+  "prompt_anchors": [
+    {
+      "id": "1-composition",
+      "task_type": "功能开发",
+      "capability_family": "图层合成",
+      "subject": "composition",
+      "state": "submit-render",
+      "invariant": "变换后图层顺序决定PNG像素",
+      "observable": "可恢复分块输出",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": "composition",
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "1-affine",
+      "task_type": "功能开发",
+      "capability_family": "坐标变换",
+      "subject": "affine",
+      "state": "create-scene",
+      "invariant": "局部坐标与输出像素具有一致含义",
+      "observable": "矢量描边能力",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": "affine",
+      "workflow_ids": [
+        "create-scene"
+      ],
+      "source_anchors": [
+        "internal/geometry/affine.go",
+        "internal/raster/plan.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/geometry/affine.go",
+          "internal/raster/plan.go"
+        ],
+        "functions": [
+          "Inverse",
+          "Compile"
+        ]
+      }
+    },
+    {
+      "id": "1-clipping",
+      "task_type": "功能开发",
+      "capability_family": "嵌套裁剪",
+      "subject": "clipping",
+      "state": "submit-render",
+      "invariant": "后代绘制同时服从祖先裁剪",
+      "observable": "可复用局部蒙版",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": "clipping",
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "1-paint",
+      "task_type": "功能开发",
+      "capability_family": "渐变和透明度",
+      "subject": "paint",
+      "state": "submit-render",
+      "invariant": "透明叠加保持颜色采样语义",
+      "observable": "隔离组透明度",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": "paint",
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/paint/color.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/paint/color.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Sample",
+          "blend"
+        ]
+      }
+    },
+    {
+      "id": "1-asset",
+      "task_type": "功能开发",
+      "capability_family": "位图素材",
+      "subject": "asset",
+      "state": "import-asset",
+      "invariant": "素材ID稳定且输入有界",
+      "observable": "多帧图集生成",
+      "primary_mechanism": "resource_lifecycle",
+      "extension_seam_id": "asset",
+      "workflow_ids": [
+        "import-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "ImportAsset",
+          "Decode"
+        ]
+      }
+    },
+    {
+      "id": "1-retirement",
+      "task_type": "功能开发",
+      "capability_family": "素材引用闭包",
+      "subject": "retirement",
+      "state": "retire-asset",
+      "invariant": "退役不改变冻结快照",
+      "observable": "素材替换分支",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": "retirement",
+      "workflow_ids": [
+        "retire-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/service/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/service/scenes.go"
+        ],
+        "functions": [
+          "RetireAsset",
+          "Freeze"
+        ]
+      }
+    },
+    {
+      "id": "1-revision",
+      "task_type": "功能开发",
+      "capability_family": "场景修订",
+      "subject": "revision",
+      "state": "revise-scene",
+      "invariant": "过期编辑不覆盖当前内容",
+      "observable": "修订分支合并",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": "revision",
+      "workflow_ids": [
+        "revise-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "PutScene",
+          "Update"
+        ]
+      }
+    },
+    {
+      "id": "1-archive",
+      "task_type": "功能开发",
+      "capability_family": "场景归档",
+      "subject": "archive",
+      "state": "archive-scene",
+      "invariant": "归档阻止新生产但保留恢复依据",
+      "observable": "命名渲染变体",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": "archive",
+      "workflow_ids": [
+        "archive-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/httpapi/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/httpapi/scenes.go"
+        ],
+        "functions": [
+          "SceneState",
+          "sceneState"
+        ]
+      }
+    },
+    {
+      "id": "1-freeze",
+      "task_type": "功能开发",
+      "capability_family": "快照冻结",
+      "subject": "freeze",
+      "state": "freeze-scene",
+      "invariant": "场景和素材在同一提交捕获",
+      "observable": "矢量结果导出",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": "freeze",
+      "workflow_ids": [
+        "freeze-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Freeze",
+          "ValidateSnapshot"
+        ]
+      }
+    },
+    {
+      "id": "1-revoke",
+      "task_type": "功能开发",
+      "capability_family": "快照撤回",
+      "subject": "revoke",
+      "state": "revoke-snapshot",
+      "invariant": "撤回不撤销已接受承诺",
+      "observable": "快照差异预览",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": "revoke",
+      "workflow_ids": [
+        "revoke-snapshot"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Revoke",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "1-dedup",
+      "task_type": "功能开发",
+      "capability_family": "任务幂等",
+      "subject": "dedup",
+      "state": "submit-render",
+      "invariant": "同键同语义对应同一任务",
+      "observable": "跨任务去重结果",
+      "primary_mechanism": "idempotency",
+      "extension_seam_id": "dedup",
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Submit",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "1-budget",
+      "task_type": "功能开发",
+      "capability_family": "渲染预算",
+      "subject": "budget",
+      "state": "submit-render",
+      "invariant": "预算拒绝不能留下排队承诺",
+      "observable": "带预算的多尺寸输出",
+      "primary_mechanism": "capacity",
+      "extension_seam_id": "budget",
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Compile",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "1-cancel",
+      "task_type": "功能开发",
+      "capability_family": "执行终态竞争",
+      "subject": "cancel",
+      "state": "cancel-render",
+      "invariant": "成功与取消只有一个提交事实",
+      "observable": "任务依赖编排",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": "cancel",
+      "workflow_ids": [
+        "cancel-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Cancel"
+        ]
+      }
+    },
+    {
+      "id": "1-retry",
+      "task_type": "功能开发",
+      "capability_family": "尝试隔离",
+      "subject": "retry",
+      "state": "retry-render",
+      "invariant": "旧执行不得覆盖新尝试",
+      "observable": "任务检查点续算",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": "retry",
+      "workflow_ids": [
+        "retry-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Retry"
+        ]
+      }
+    },
+    {
+      "id": "1-restart",
+      "task_type": "功能开发",
+      "capability_family": "中断恢复",
+      "subject": "restart",
+      "state": "recover-render",
+      "invariant": "重启继续固定输入而非最新场景",
+      "observable": "多进程执行租约",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": "restart",
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "Recover",
+          "Open"
+        ]
+      }
+    },
+    {
+      "id": "1-package",
+      "task_type": "功能开发",
+      "capability_family": "交换包导入",
+      "subject": "package",
+      "state": "import-package",
+      "invariant": "校验或冲突失败不得部分落地",
+      "observable": "批量场景包交换",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": "package",
+      "workflow_ids": [
+        "import-package"
+      ],
+      "source_anchors": [
+        "internal/bundle/package.go",
+        "internal/service/packages.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/bundle/package.go",
+          "internal/service/packages.go"
+        ],
+        "functions": [
+          "Validate",
+          "Import"
+        ]
+      }
+    },
+    {
+      "id": "1-purge",
+      "task_type": "功能开发",
+      "capability_family": "结果生命周期",
+      "subject": "purge",
+      "state": "purge-artifact",
+      "invariant": "清理字节保留成功任务事实",
+      "observable": "结果保留策略",
+      "primary_mechanism": "delete_removal",
+      "extension_seam_id": "purge",
+      "workflow_ids": [
+        "purge-artifact"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/httpapi/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/httpapi/jobs.go"
+        ],
+        "functions": [
+          "Purge",
+          "download"
+        ]
+      }
+    },
+    {
+      "id": "1-difference",
+      "task_type": "功能开发",
+      "capability_family": "像素比较",
+      "subject": "difference",
+      "state": "compare-renders",
+      "invariant": "视觉差异以解码像素为准",
+      "observable": "视觉阈值判定",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": "difference",
+      "workflow_ids": [
+        "compare-renders"
+      ],
+      "source_anchors": [
+        "internal/observe/report.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/observe/report.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "Compare",
+          "DecodeOutput"
+        ]
+      }
+    },
+    {
+      "id": "1-journal",
+      "task_type": "功能开发",
+      "capability_family": "事件序列",
+      "subject": "journal",
+      "state": "observe-service",
+      "invariant": "事件保留窗口不重用序号",
+      "observable": "渲染来源证明",
+      "primary_mechanism": "versioning_audit",
+      "extension_seam_id": "journal",
+      "workflow_ids": [
+        "observe-service"
+      ],
+      "source_anchors": [
+        "internal/model/types.go",
+        "internal/observe/report.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/model/types.go",
+          "internal/observe/report.go"
+        ],
+        "functions": [
+          "Emit",
+          "Summary"
+        ]
+      }
+    },
+    {
+      "id": "1-storage",
+      "task_type": "功能开发",
+      "capability_family": "原子状态替换",
+      "subject": "storage",
+      "state": "recover-render",
+      "invariant": "提交失败不推进内存事实",
+      "observable": "增量状态日志",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": "storage",
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/persist/store.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/persist/store.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "atomicWrite",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "2-composition",
+      "task_type": "代码重构",
+      "capability_family": "图层合成",
+      "subject": "composition",
+      "state": "submit-render",
+      "invariant": "变换后图层顺序决定PNG像素",
+      "observable": "渲染执行计划职责分离",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "2-affine",
+      "task_type": "代码重构",
+      "capability_family": "坐标变换",
+      "subject": "affine",
+      "state": "create-scene",
+      "invariant": "局部坐标与输出像素具有一致含义",
+      "observable": "几何数值边界收敛",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "create-scene"
+      ],
+      "source_anchors": [
+        "internal/geometry/affine.go",
+        "internal/raster/plan.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/geometry/affine.go",
+          "internal/raster/plan.go"
+        ],
+        "functions": [
+          "Inverse",
+          "Compile"
+        ]
+      }
+    },
+    {
+      "id": "2-clipping",
+      "task_type": "代码重构",
+      "capability_family": "嵌套裁剪",
+      "subject": "clipping",
+      "state": "submit-render",
+      "invariant": "后代绘制同时服从祖先裁剪",
+      "observable": "裁剪链不可变表达",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "2-paint",
+      "task_type": "代码重构",
+      "capability_family": "渐变和透明度",
+      "subject": "paint",
+      "state": "submit-render",
+      "invariant": "透明叠加保持颜色采样语义",
+      "observable": "颜料采样与混合接口分离",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/paint/color.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/paint/color.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Sample",
+          "blend"
+        ]
+      }
+    },
+    {
+      "id": "2-asset",
+      "task_type": "代码重构",
+      "capability_family": "位图素材",
+      "subject": "asset",
+      "state": "import-asset",
+      "invariant": "素材ID稳定且输入有界",
+      "observable": "素材解码与领域接纳分离",
+      "primary_mechanism": "resource_lifecycle",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "ImportAsset",
+          "Decode"
+        ]
+      }
+    },
+    {
+      "id": "2-retirement",
+      "task_type": "代码重构",
+      "capability_family": "素材引用闭包",
+      "subject": "retirement",
+      "state": "retire-asset",
+      "invariant": "退役不改变冻结快照",
+      "observable": "引用解析责任集中",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retire-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/service/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/service/scenes.go"
+        ],
+        "functions": [
+          "RetireAsset",
+          "Freeze"
+        ]
+      }
+    },
+    {
+      "id": "2-revision",
+      "task_type": "代码重构",
+      "capability_family": "场景修订",
+      "subject": "revision",
+      "state": "revise-scene",
+      "invariant": "过期编辑不覆盖当前内容",
+      "observable": "修订提交边界封装",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revise-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "PutScene",
+          "Update"
+        ]
+      }
+    },
+    {
+      "id": "2-archive",
+      "task_type": "代码重构",
+      "capability_family": "场景归档",
+      "subject": "archive",
+      "state": "archive-scene",
+      "invariant": "归档阻止新生产但保留恢复依据",
+      "observable": "场景生命期策略收敛",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "archive-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/httpapi/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/httpapi/scenes.go"
+        ],
+        "functions": [
+          "SceneState",
+          "sceneState"
+        ]
+      }
+    },
+    {
+      "id": "2-freeze",
+      "task_type": "代码重构",
+      "capability_family": "快照冻结",
+      "subject": "freeze",
+      "state": "freeze-scene",
+      "invariant": "场景和素材在同一提交捕获",
+      "observable": "冻结构建与提交责任分离",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "freeze-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Freeze",
+          "ValidateSnapshot"
+        ]
+      }
+    },
+    {
+      "id": "2-revoke",
+      "task_type": "代码重构",
+      "capability_family": "快照撤回",
+      "subject": "revoke",
+      "state": "revoke-snapshot",
+      "invariant": "撤回不撤销已接受承诺",
+      "observable": "撤回状态与任务承诺分离",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revoke-snapshot"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Revoke",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "2-dedup",
+      "task_type": "代码重构",
+      "capability_family": "任务幂等",
+      "subject": "dedup",
+      "state": "submit-render",
+      "invariant": "同键同语义对应同一任务",
+      "observable": "幂等收据协议封装",
+      "primary_mechanism": "idempotency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Submit",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "2-budget",
+      "task_type": "代码重构",
+      "capability_family": "渲染预算",
+      "subject": "budget",
+      "state": "submit-render",
+      "invariant": "预算拒绝不能留下排队承诺",
+      "observable": "资源估算职责抽离",
+      "primary_mechanism": "capacity",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Compile",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "2-cancel",
+      "task_type": "代码重构",
+      "capability_family": "执行终态竞争",
+      "subject": "cancel",
+      "state": "cancel-render",
+      "invariant": "成功与取消只有一个提交事实",
+      "observable": "运行上下文所有权重组",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "cancel-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Cancel"
+        ]
+      }
+    },
+    {
+      "id": "2-retry",
+      "task_type": "代码重构",
+      "capability_family": "尝试隔离",
+      "subject": "retry",
+      "state": "retry-render",
+      "invariant": "旧执行不得覆盖新尝试",
+      "observable": "尝试身份与结果提交封装",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retry-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Retry"
+        ]
+      }
+    },
+    {
+      "id": "2-restart",
+      "task_type": "代码重构",
+      "capability_family": "中断恢复",
+      "subject": "restart",
+      "state": "recover-render",
+      "invariant": "重启继续固定输入而非最新场景",
+      "observable": "启动恢复与消费循环解耦",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "Recover",
+          "Open"
+        ]
+      }
+    },
+    {
+      "id": "2-package",
+      "task_type": "代码重构",
+      "capability_family": "交换包导入",
+      "subject": "package",
+      "state": "import-package",
+      "invariant": "校验或冲突失败不得部分落地",
+      "observable": "交换格式与事务提交分离",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-package"
+      ],
+      "source_anchors": [
+        "internal/bundle/package.go",
+        "internal/service/packages.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/bundle/package.go",
+          "internal/service/packages.go"
+        ],
+        "functions": [
+          "Validate",
+          "Import"
+        ]
+      }
+    },
+    {
+      "id": "2-purge",
+      "task_type": "代码重构",
+      "capability_family": "结果生命周期",
+      "subject": "purge",
+      "state": "purge-artifact",
+      "invariant": "清理字节保留成功任务事实",
+      "observable": "结果读取和清理协议归并",
+      "primary_mechanism": "delete_removal",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "purge-artifact"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/httpapi/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/httpapi/jobs.go"
+        ],
+        "functions": [
+          "Purge",
+          "download"
+        ]
+      }
+    },
+    {
+      "id": "2-difference",
+      "task_type": "代码重构",
+      "capability_family": "像素比较",
+      "subject": "difference",
+      "state": "compare-renders",
+      "invariant": "视觉差异以解码像素为准",
+      "observable": "像素比较与解码职责分离",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "compare-renders"
+      ],
+      "source_anchors": [
+        "internal/observe/report.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/observe/report.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "Compare",
+          "DecodeOutput"
+        ]
+      }
+    },
+    {
+      "id": "2-journal",
+      "task_type": "代码重构",
+      "capability_family": "事件序列",
+      "subject": "journal",
+      "state": "observe-service",
+      "invariant": "事件保留窗口不重用序号",
+      "observable": "事件构建与序号分配分离",
+      "primary_mechanism": "versioning_audit",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "observe-service"
+      ],
+      "source_anchors": [
+        "internal/model/types.go",
+        "internal/observe/report.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/model/types.go",
+          "internal/observe/report.go"
+        ],
+        "functions": [
+          "Emit",
+          "Summary"
+        ]
+      }
+    },
+    {
+      "id": "2-storage",
+      "task_type": "代码重构",
+      "capability_family": "原子状态替换",
+      "subject": "storage",
+      "state": "recover-render",
+      "invariant": "提交失败不推进内存事实",
+      "observable": "存储事务与文件替换分离",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/persist/store.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/persist/store.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "atomicWrite",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "3-composition",
+      "task_type": "功能优化",
+      "capability_family": "图层合成",
+      "subject": "composition",
+      "state": "submit-render",
+      "invariant": "变换后图层顺序决定PNG像素",
+      "observable": "复杂场景输出顺序调整",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "3-affine",
+      "task_type": "功能优化",
+      "capability_family": "坐标变换",
+      "subject": "affine",
+      "state": "create-scene",
+      "invariant": "局部坐标与输出像素具有一致含义",
+      "observable": "可预测的变换编辑",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "create-scene"
+      ],
+      "source_anchors": [
+        "internal/geometry/affine.go",
+        "internal/raster/plan.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/geometry/affine.go",
+          "internal/raster/plan.go"
+        ],
+        "functions": [
+          "Inverse",
+          "Compile"
+        ]
+      }
+    },
+    {
+      "id": "3-clipping",
+      "task_type": "功能优化",
+      "capability_family": "嵌套裁剪",
+      "subject": "clipping",
+      "state": "submit-render",
+      "invariant": "后代绘制同时服从祖先裁剪",
+      "observable": "裁剪边缘采样迭代",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "3-paint",
+      "task_type": "功能优化",
+      "capability_family": "渐变和透明度",
+      "subject": "paint",
+      "state": "submit-render",
+      "invariant": "透明叠加保持颜色采样语义",
+      "observable": "渐变色彩行为调整",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/paint/color.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/paint/color.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Sample",
+          "blend"
+        ]
+      }
+    },
+    {
+      "id": "3-asset",
+      "task_type": "功能优化",
+      "capability_family": "位图素材",
+      "subject": "asset",
+      "state": "import-asset",
+      "invariant": "素材ID稳定且输入有界",
+      "observable": "素材导入冲突处置",
+      "primary_mechanism": "resource_lifecycle",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "ImportAsset",
+          "Decode"
+        ]
+      }
+    },
+    {
+      "id": "3-retirement",
+      "task_type": "功能优化",
+      "capability_family": "素材引用闭包",
+      "subject": "retirement",
+      "state": "retire-asset",
+      "invariant": "退役不改变冻结快照",
+      "observable": "退役影响预览与替换流程",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retire-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/service/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/service/scenes.go"
+        ],
+        "functions": [
+          "RetireAsset",
+          "Freeze"
+        ]
+      }
+    },
+    {
+      "id": "3-revision",
+      "task_type": "功能优化",
+      "capability_family": "场景修订",
+      "subject": "revision",
+      "state": "revise-scene",
+      "invariant": "过期编辑不覆盖当前内容",
+      "observable": "多人修订冲突解释",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revise-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "PutScene",
+          "Update"
+        ]
+      }
+    },
+    {
+      "id": "3-archive",
+      "task_type": "功能优化",
+      "capability_family": "场景归档",
+      "subject": "archive",
+      "state": "archive-scene",
+      "invariant": "归档阻止新生产但保留恢复依据",
+      "observable": "归档恢复时引用复核",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "archive-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/httpapi/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/httpapi/scenes.go"
+        ],
+        "functions": [
+          "SceneState",
+          "sceneState"
+        ]
+      }
+    },
+    {
+      "id": "3-freeze",
+      "task_type": "功能优化",
+      "capability_family": "快照冻结",
+      "subject": "freeze",
+      "state": "freeze-scene",
+      "invariant": "场景和素材在同一提交捕获",
+      "observable": "快照重复冻结行为",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "freeze-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Freeze",
+          "ValidateSnapshot"
+        ]
+      }
+    },
+    {
+      "id": "3-revoke",
+      "task_type": "功能优化",
+      "capability_family": "快照撤回",
+      "subject": "revoke",
+      "state": "revoke-snapshot",
+      "invariant": "撤回不撤销已接受承诺",
+      "observable": "撤回与重放的结果说明",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revoke-snapshot"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Revoke",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "3-dedup",
+      "task_type": "功能优化",
+      "capability_family": "任务幂等",
+      "subject": "dedup",
+      "state": "submit-render",
+      "invariant": "同键同语义对应同一任务",
+      "observable": "客户端重试结果协商",
+      "primary_mechanism": "idempotency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Submit",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "3-budget",
+      "task_type": "功能优化",
+      "capability_family": "渲染预算",
+      "subject": "budget",
+      "state": "submit-render",
+      "invariant": "预算拒绝不能留下排队承诺",
+      "observable": "跨尺寸预算决策",
+      "primary_mechanism": "capacity",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Compile",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "3-cancel",
+      "task_type": "功能优化",
+      "capability_family": "执行终态竞争",
+      "subject": "cancel",
+      "state": "cancel-render",
+      "invariant": "成功与取消只有一个提交事实",
+      "observable": "取消反馈与结果可见性",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "cancel-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Cancel"
+        ]
+      }
+    },
+    {
+      "id": "3-retry",
+      "task_type": "功能优化",
+      "capability_family": "尝试隔离",
+      "subject": "retry",
+      "state": "retry-render",
+      "invariant": "旧执行不得覆盖新尝试",
+      "observable": "重试上下文保留",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retry-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Retry"
+        ]
+      }
+    },
+    {
+      "id": "3-restart",
+      "task_type": "功能优化",
+      "capability_family": "中断恢复",
+      "subject": "restart",
+      "state": "recover-render",
+      "invariant": "重启继续固定输入而非最新场景",
+      "observable": "恢复任务先后顺序",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "Recover",
+          "Open"
+        ]
+      }
+    },
+    {
+      "id": "3-package",
+      "task_type": "功能优化",
+      "capability_family": "交换包导入",
+      "subject": "package",
+      "state": "import-package",
+      "invariant": "校验或冲突失败不得部分落地",
+      "observable": "包冲突预览与确认",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-package"
+      ],
+      "source_anchors": [
+        "internal/bundle/package.go",
+        "internal/service/packages.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/bundle/package.go",
+          "internal/service/packages.go"
+        ],
+        "functions": [
+          "Validate",
+          "Import"
+        ]
+      }
+    },
+    {
+      "id": "3-purge",
+      "task_type": "功能优化",
+      "capability_family": "结果生命周期",
+      "subject": "purge",
+      "state": "purge-artifact",
+      "invariant": "清理字节保留成功任务事实",
+      "observable": "清理后结果入口反馈",
+      "primary_mechanism": "delete_removal",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "purge-artifact"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/httpapi/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/httpapi/jobs.go"
+        ],
+        "functions": [
+          "Purge",
+          "download"
+        ]
+      }
+    },
+    {
+      "id": "3-difference",
+      "task_type": "功能优化",
+      "capability_family": "像素比较",
+      "subject": "difference",
+      "state": "compare-renders",
+      "invariant": "视觉差异以解码像素为准",
+      "observable": "视觉对比容差协商",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "compare-renders"
+      ],
+      "source_anchors": [
+        "internal/observe/report.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/observe/report.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "Compare",
+          "DecodeOutput"
+        ]
+      }
+    },
+    {
+      "id": "3-journal",
+      "task_type": "功能优化",
+      "capability_family": "事件序列",
+      "subject": "journal",
+      "state": "observe-service",
+      "invariant": "事件保留窗口不重用序号",
+      "observable": "运行事件查询的连续性",
+      "primary_mechanism": "versioning_audit",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "observe-service"
+      ],
+      "source_anchors": [
+        "internal/model/types.go",
+        "internal/observe/report.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/model/types.go",
+          "internal/observe/report.go"
+        ],
+        "functions": [
+          "Emit",
+          "Summary"
+        ]
+      }
+    },
+    {
+      "id": "3-storage",
+      "task_type": "功能优化",
+      "capability_family": "原子状态替换",
+      "subject": "storage",
+      "state": "recover-render",
+      "invariant": "提交失败不推进内存事实",
+      "observable": "提交错误后的工作流恢复",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/persist/store.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/persist/store.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "atomicWrite",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "4-composition",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "图层合成",
+      "subject": "composition",
+      "state": "submit-render",
+      "invariant": "变换后图层顺序决定PNG像素",
+      "observable": "替换CPU栅格后端",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "4-affine",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "坐标变换",
+      "subject": "affine",
+      "state": "create-scene",
+      "invariant": "局部坐标与输出像素具有一致含义",
+      "observable": "引入定点坐标表达",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "create-scene"
+      ],
+      "source_anchors": [
+        "internal/geometry/affine.go",
+        "internal/raster/plan.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/geometry/affine.go",
+          "internal/raster/plan.go"
+        ],
+        "functions": [
+          "Inverse",
+          "Compile"
+        ]
+      }
+    },
+    {
+      "id": "4-clipping",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "嵌套裁剪",
+      "subject": "clipping",
+      "state": "submit-render",
+      "invariant": "后代绘制同时服从祖先裁剪",
+      "observable": "迁移裁剪区域表达",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "4-paint",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "渐变和透明度",
+      "subject": "paint",
+      "state": "submit-render",
+      "invariant": "透明叠加保持颜色采样语义",
+      "observable": "迁移线性色彩空间",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/paint/color.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/paint/color.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Sample",
+          "blend"
+        ]
+      }
+    },
+    {
+      "id": "4-asset",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "位图素材",
+      "subject": "asset",
+      "state": "import-asset",
+      "invariant": "素材ID稳定且输入有界",
+      "observable": "扩展素材编码支持",
+      "primary_mechanism": "resource_lifecycle",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "ImportAsset",
+          "Decode"
+        ]
+      }
+    },
+    {
+      "id": "4-retirement",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "素材引用闭包",
+      "subject": "retirement",
+      "state": "retire-asset",
+      "invariant": "退役不改变冻结快照",
+      "observable": "迁移素材内容寻址存储",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retire-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/service/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/service/scenes.go"
+        ],
+        "functions": [
+          "RetireAsset",
+          "Freeze"
+        ]
+      }
+    },
+    {
+      "id": "4-revision",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "场景修订",
+      "subject": "revision",
+      "state": "revise-scene",
+      "invariant": "过期编辑不覆盖当前内容",
+      "observable": "迁移修订存储布局",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revise-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "PutScene",
+          "Update"
+        ]
+      }
+    },
+    {
+      "id": "4-archive",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "场景归档",
+      "subject": "archive",
+      "state": "archive-scene",
+      "invariant": "归档阻止新生产但保留恢复依据",
+      "observable": "迁移场景状态协议版本",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "archive-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/httpapi/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/httpapi/scenes.go"
+        ],
+        "functions": [
+          "SceneState",
+          "sceneState"
+        ]
+      }
+    },
+    {
+      "id": "4-freeze",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "快照冻结",
+      "subject": "freeze",
+      "state": "freeze-scene",
+      "invariant": "场景和素材在同一提交捕获",
+      "observable": "升级快照摘要格式",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "freeze-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Freeze",
+          "ValidateSnapshot"
+        ]
+      }
+    },
+    {
+      "id": "4-revoke",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "快照撤回",
+      "subject": "revoke",
+      "state": "revoke-snapshot",
+      "invariant": "撤回不撤销已接受承诺",
+      "observable": "迁移快照撤回协议",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revoke-snapshot"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Revoke",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "4-dedup",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "任务幂等",
+      "subject": "dedup",
+      "state": "submit-render",
+      "invariant": "同键同语义对应同一任务",
+      "observable": "迁移幂等收据编码",
+      "primary_mechanism": "idempotency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Submit",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "4-budget",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "渲染预算",
+      "subject": "budget",
+      "state": "submit-render",
+      "invariant": "预算拒绝不能留下排队承诺",
+      "observable": "迁移资源估算单位",
+      "primary_mechanism": "capacity",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Compile",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "4-cancel",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "执行终态竞争",
+      "subject": "cancel",
+      "state": "cancel-render",
+      "invariant": "成功与取消只有一个提交事实",
+      "observable": "升级可取消执行协议",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "cancel-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Cancel"
+        ]
+      }
+    },
+    {
+      "id": "4-retry",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "尝试隔离",
+      "subject": "retry",
+      "state": "retry-render",
+      "invariant": "旧执行不得覆盖新尝试",
+      "observable": "迁移任务尝试结构",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retry-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Retry"
+        ]
+      }
+    },
+    {
+      "id": "4-restart",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "中断恢复",
+      "subject": "restart",
+      "state": "recover-render",
+      "invariant": "重启继续固定输入而非最新场景",
+      "observable": "迁移持久队列后端",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "Recover",
+          "Open"
+        ]
+      }
+    },
+    {
+      "id": "4-package",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "交换包导入",
+      "subject": "package",
+      "state": "import-package",
+      "invariant": "校验或冲突失败不得部分落地",
+      "observable": "升级交换包版本",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-package"
+      ],
+      "source_anchors": [
+        "internal/bundle/package.go",
+        "internal/service/packages.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/bundle/package.go",
+          "internal/service/packages.go"
+        ],
+        "functions": [
+          "Validate",
+          "Import"
+        ]
+      }
+    },
+    {
+      "id": "4-purge",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "结果生命周期",
+      "subject": "purge",
+      "state": "purge-artifact",
+      "invariant": "清理字节保留成功任务事实",
+      "observable": "迁移结果对象存储",
+      "primary_mechanism": "delete_removal",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "purge-artifact"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/httpapi/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/httpapi/jobs.go"
+        ],
+        "functions": [
+          "Purge",
+          "download"
+        ]
+      }
+    },
+    {
+      "id": "4-difference",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "像素比较",
+      "subject": "difference",
+      "state": "compare-renders",
+      "invariant": "视觉差异以解码像素为准",
+      "observable": "迁移视觉差异计算库",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "compare-renders"
+      ],
+      "source_anchors": [
+        "internal/observe/report.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/observe/report.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "Compare",
+          "DecodeOutput"
+        ]
+      }
+    },
+    {
+      "id": "4-journal",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "事件序列",
+      "subject": "journal",
+      "state": "observe-service",
+      "invariant": "事件保留窗口不重用序号",
+      "observable": "迁移领域事件格式",
+      "primary_mechanism": "versioning_audit",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "observe-service"
+      ],
+      "source_anchors": [
+        "internal/model/types.go",
+        "internal/observe/report.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/model/types.go",
+          "internal/observe/report.go"
+        ],
+        "functions": [
+          "Emit",
+          "Summary"
+        ]
+      }
+    },
+    {
+      "id": "4-storage",
+      "task_type": "依赖升级与迁移",
+      "capability_family": "原子状态替换",
+      "subject": "storage",
+      "state": "recover-render",
+      "invariant": "提交失败不推进内存事实",
+      "observable": "JSON迁移到事务数据库",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/persist/store.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/persist/store.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "atomicWrite",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "5-composition",
+      "task_type": "质量保障",
+      "capability_family": "图层合成",
+      "subject": "composition",
+      "state": "submit-render",
+      "invariant": "变换后图层顺序决定PNG像素",
+      "observable": "嵌套合成兼容验证",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "5-affine",
+      "task_type": "质量保障",
+      "capability_family": "坐标变换",
+      "subject": "affine",
+      "state": "create-scene",
+      "invariant": "局部坐标与输出像素具有一致含义",
+      "observable": "仿射数值性质验证",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "create-scene"
+      ],
+      "source_anchors": [
+        "internal/geometry/affine.go",
+        "internal/raster/plan.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/geometry/affine.go",
+          "internal/raster/plan.go"
+        ],
+        "functions": [
+          "Inverse",
+          "Compile"
+        ]
+      }
+    },
+    {
+      "id": "5-clipping",
+      "task_type": "质量保障",
+      "capability_family": "嵌套裁剪",
+      "subject": "clipping",
+      "state": "submit-render",
+      "invariant": "后代绘制同时服从祖先裁剪",
+      "observable": "裁剪变形关系验证",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "5-paint",
+      "task_type": "质量保障",
+      "capability_family": "渐变和透明度",
+      "subject": "paint",
+      "state": "submit-render",
+      "invariant": "透明叠加保持颜色采样语义",
+      "observable": "透明渐变像素基准",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/paint/color.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/paint/color.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Sample",
+          "blend"
+        ]
+      }
+    },
+    {
+      "id": "5-asset",
+      "task_type": "质量保障",
+      "capability_family": "位图素材",
+      "subject": "asset",
+      "state": "import-asset",
+      "invariant": "素材ID稳定且输入有界",
+      "observable": "PNG解码资源边界验证",
+      "primary_mechanism": "resource_lifecycle",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "ImportAsset",
+          "Decode"
+        ]
+      }
+    },
+    {
+      "id": "5-retirement",
+      "task_type": "质量保障",
+      "capability_family": "素材引用闭包",
+      "subject": "retirement",
+      "state": "retire-asset",
+      "invariant": "退役不改变冻结快照",
+      "observable": "素材退役历史隔离验证",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retire-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/service/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/service/scenes.go"
+        ],
+        "functions": [
+          "RetireAsset",
+          "Freeze"
+        ]
+      }
+    },
+    {
+      "id": "5-revision",
+      "task_type": "质量保障",
+      "capability_family": "场景修订",
+      "subject": "revision",
+      "state": "revise-scene",
+      "invariant": "过期编辑不覆盖当前内容",
+      "observable": "并发修订冲突验证",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revise-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "PutScene",
+          "Update"
+        ]
+      }
+    },
+    {
+      "id": "5-archive",
+      "task_type": "质量保障",
+      "capability_family": "场景归档",
+      "subject": "archive",
+      "state": "archive-scene",
+      "invariant": "归档阻止新生产但保留恢复依据",
+      "observable": "归档恢复引用兼容验证",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "archive-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/httpapi/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/httpapi/scenes.go"
+        ],
+        "functions": [
+          "SceneState",
+          "sceneState"
+        ]
+      }
+    },
+    {
+      "id": "5-freeze",
+      "task_type": "质量保障",
+      "capability_family": "快照冻结",
+      "subject": "freeze",
+      "state": "freeze-scene",
+      "invariant": "场景和素材在同一提交捕获",
+      "observable": "快照冻结竞态验证",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "freeze-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Freeze",
+          "ValidateSnapshot"
+        ]
+      }
+    },
+    {
+      "id": "5-revoke",
+      "task_type": "质量保障",
+      "capability_family": "快照撤回",
+      "subject": "revoke",
+      "state": "revoke-snapshot",
+      "invariant": "撤回不撤销已接受承诺",
+      "observable": "撤回与任务接受交错验证",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revoke-snapshot"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Revoke",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "5-dedup",
+      "task_type": "质量保障",
+      "capability_family": "任务幂等",
+      "subject": "dedup",
+      "state": "submit-render",
+      "invariant": "同键同语义对应同一任务",
+      "observable": "幂等请求故障矩阵",
+      "primary_mechanism": "idempotency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Submit",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "5-budget",
+      "task_type": "质量保障",
+      "capability_family": "渲染预算",
+      "subject": "budget",
+      "state": "submit-render",
+      "invariant": "预算拒绝不能留下排队承诺",
+      "observable": "预算边界容量验证",
+      "primary_mechanism": "capacity",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Compile",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "5-cancel",
+      "task_type": "质量保障",
+      "capability_family": "执行终态竞争",
+      "subject": "cancel",
+      "state": "cancel-render",
+      "invariant": "成功与取消只有一个提交事实",
+      "observable": "取消完成竞态验证",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "cancel-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Cancel"
+        ]
+      }
+    },
+    {
+      "id": "5-retry",
+      "task_type": "质量保障",
+      "capability_family": "尝试隔离",
+      "subject": "retry",
+      "state": "retry-render",
+      "invariant": "旧执行不得覆盖新尝试",
+      "observable": "旧尝试过期验证",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retry-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Retry"
+        ]
+      }
+    },
+    {
+      "id": "5-restart",
+      "task_type": "质量保障",
+      "capability_family": "中断恢复",
+      "subject": "restart",
+      "state": "recover-render",
+      "invariant": "重启继续固定输入而非最新场景",
+      "observable": "进程崩溃恢复验证",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "Recover",
+          "Open"
+        ]
+      }
+    },
+    {
+      "id": "5-package",
+      "task_type": "质量保障",
+      "capability_family": "交换包导入",
+      "subject": "package",
+      "state": "import-package",
+      "invariant": "校验或冲突失败不得部分落地",
+      "observable": "包导入原子性验证",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-package"
+      ],
+      "source_anchors": [
+        "internal/bundle/package.go",
+        "internal/service/packages.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/bundle/package.go",
+          "internal/service/packages.go"
+        ],
+        "functions": [
+          "Validate",
+          "Import"
+        ]
+      }
+    },
+    {
+      "id": "5-purge",
+      "task_type": "质量保障",
+      "capability_family": "结果生命周期",
+      "subject": "purge",
+      "state": "purge-artifact",
+      "invariant": "清理字节保留成功任务事实",
+      "observable": "清理与下载竞争验证",
+      "primary_mechanism": "delete_removal",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "purge-artifact"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/httpapi/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/httpapi/jobs.go"
+        ],
+        "functions": [
+          "Purge",
+          "download"
+        ]
+      }
+    },
+    {
+      "id": "5-difference",
+      "task_type": "质量保障",
+      "capability_family": "像素比较",
+      "subject": "difference",
+      "state": "compare-renders",
+      "invariant": "视觉差异以解码像素为准",
+      "observable": "像素差异参考数据验证",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "compare-renders"
+      ],
+      "source_anchors": [
+        "internal/observe/report.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/observe/report.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "Compare",
+          "DecodeOutput"
+        ]
+      }
+    },
+    {
+      "id": "5-journal",
+      "task_type": "质量保障",
+      "capability_family": "事件序列",
+      "subject": "journal",
+      "state": "observe-service",
+      "invariant": "事件保留窗口不重用序号",
+      "observable": "事件截断单调性验证",
+      "primary_mechanism": "versioning_audit",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "observe-service"
+      ],
+      "source_anchors": [
+        "internal/model/types.go",
+        "internal/observe/report.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/model/types.go",
+          "internal/observe/report.go"
+        ],
+        "functions": [
+          "Emit",
+          "Summary"
+        ]
+      }
+    },
+    {
+      "id": "5-storage",
+      "task_type": "质量保障",
+      "capability_family": "原子状态替换",
+      "subject": "storage",
+      "state": "recover-render",
+      "invariant": "提交失败不推进内存事实",
+      "observable": "原子替换故障注入验证",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/persist/store.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/persist/store.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "atomicWrite",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "6-composition",
+      "task_type": "项目维护",
+      "capability_family": "图层合成",
+      "subject": "composition",
+      "state": "submit-render",
+      "invariant": "变换后图层顺序决定PNG像素",
+      "observable": "合成语义参考手册",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "6-affine",
+      "task_type": "项目维护",
+      "capability_family": "坐标变换",
+      "subject": "affine",
+      "state": "create-scene",
+      "invariant": "局部坐标与输出像素具有一致含义",
+      "observable": "坐标与缩放兼容契约",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "create-scene"
+      ],
+      "source_anchors": [
+        "internal/geometry/affine.go",
+        "internal/raster/plan.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/geometry/affine.go",
+          "internal/raster/plan.go"
+        ],
+        "functions": [
+          "Inverse",
+          "Compile"
+        ]
+      }
+    },
+    {
+      "id": "6-clipping",
+      "task_type": "项目维护",
+      "capability_family": "嵌套裁剪",
+      "subject": "clipping",
+      "state": "submit-render",
+      "invariant": "后代绘制同时服从祖先裁剪",
+      "observable": "裁剪层级示例集维护",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "6-paint",
+      "task_type": "项目维护",
+      "capability_family": "渐变和透明度",
+      "subject": "paint",
+      "state": "submit-render",
+      "invariant": "透明叠加保持颜色采样语义",
+      "observable": "色彩和透明度规范",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/paint/color.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/paint/color.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Sample",
+          "blend"
+        ]
+      }
+    },
+    {
+      "id": "6-asset",
+      "task_type": "项目维护",
+      "capability_family": "位图素材",
+      "subject": "asset",
+      "state": "import-asset",
+      "invariant": "素材ID稳定且输入有界",
+      "observable": "素材接入协议说明",
+      "primary_mechanism": "resource_lifecycle",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "ImportAsset",
+          "Decode"
+        ]
+      }
+    },
+    {
+      "id": "6-retirement",
+      "task_type": "项目维护",
+      "capability_family": "素材引用闭包",
+      "subject": "retirement",
+      "state": "retire-asset",
+      "invariant": "退役不改变冻结快照",
+      "observable": "引用生命周期运维手册",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retire-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/service/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/service/scenes.go"
+        ],
+        "functions": [
+          "RetireAsset",
+          "Freeze"
+        ]
+      }
+    },
+    {
+      "id": "6-revision",
+      "task_type": "项目维护",
+      "capability_family": "场景修订",
+      "subject": "revision",
+      "state": "revise-scene",
+      "invariant": "过期编辑不覆盖当前内容",
+      "observable": "修订冲突集成指南",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revise-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "PutScene",
+          "Update"
+        ]
+      }
+    },
+    {
+      "id": "6-archive",
+      "task_type": "项目维护",
+      "capability_family": "场景归档",
+      "subject": "archive",
+      "state": "archive-scene",
+      "invariant": "归档阻止新生产但保留恢复依据",
+      "observable": "归档恢复状态图",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "archive-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/httpapi/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/httpapi/scenes.go"
+        ],
+        "functions": [
+          "SceneState",
+          "sceneState"
+        ]
+      }
+    },
+    {
+      "id": "6-freeze",
+      "task_type": "项目维护",
+      "capability_family": "快照冻结",
+      "subject": "freeze",
+      "state": "freeze-scene",
+      "invariant": "场景和素材在同一提交捕获",
+      "observable": "冻结可重现性规范",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "freeze-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Freeze",
+          "ValidateSnapshot"
+        ]
+      }
+    },
+    {
+      "id": "6-revoke",
+      "task_type": "项目维护",
+      "capability_family": "快照撤回",
+      "subject": "revoke",
+      "state": "revoke-snapshot",
+      "invariant": "撤回不撤销已接受承诺",
+      "observable": "撤回承诺边界说明",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revoke-snapshot"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Revoke",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "6-dedup",
+      "task_type": "项目维护",
+      "capability_family": "任务幂等",
+      "subject": "dedup",
+      "state": "submit-render",
+      "invariant": "同键同语义对应同一任务",
+      "observable": "客户端幂等接入手册",
+      "primary_mechanism": "idempotency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Submit",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "6-budget",
+      "task_type": "项目维护",
+      "capability_family": "渲染预算",
+      "subject": "budget",
+      "state": "submit-render",
+      "invariant": "预算拒绝不能留下排队承诺",
+      "observable": "渲染容量预算说明",
+      "primary_mechanism": "capacity",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Compile",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "6-cancel",
+      "task_type": "项目维护",
+      "capability_family": "执行终态竞争",
+      "subject": "cancel",
+      "state": "cancel-render",
+      "invariant": "成功与取消只有一个提交事实",
+      "observable": "取消终态竞态指南",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "cancel-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Cancel"
+        ]
+      }
+    },
+    {
+      "id": "6-retry",
+      "task_type": "项目维护",
+      "capability_family": "尝试隔离",
+      "subject": "retry",
+      "state": "retry-render",
+      "invariant": "旧执行不得覆盖新尝试",
+      "observable": "尝试次数语义变更记录",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retry-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Retry"
+        ]
+      }
+    },
+    {
+      "id": "6-restart",
+      "task_type": "项目维护",
+      "capability_family": "中断恢复",
+      "subject": "restart",
+      "state": "recover-render",
+      "invariant": "重启继续固定输入而非最新场景",
+      "observable": "启动恢复故障手册",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "Recover",
+          "Open"
+        ]
+      }
+    },
+    {
+      "id": "6-package",
+      "task_type": "项目维护",
+      "capability_family": "交换包导入",
+      "subject": "package",
+      "state": "import-package",
+      "invariant": "校验或冲突失败不得部分落地",
+      "observable": "交换包格式规范",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-package"
+      ],
+      "source_anchors": [
+        "internal/bundle/package.go",
+        "internal/service/packages.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/bundle/package.go",
+          "internal/service/packages.go"
+        ],
+        "functions": [
+          "Validate",
+          "Import"
+        ]
+      }
+    },
+    {
+      "id": "6-purge",
+      "task_type": "项目维护",
+      "capability_family": "结果生命周期",
+      "subject": "purge",
+      "state": "purge-artifact",
+      "invariant": "清理字节保留成功任务事实",
+      "observable": "结果清理兼容说明",
+      "primary_mechanism": "delete_removal",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "purge-artifact"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/httpapi/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/httpapi/jobs.go"
+        ],
+        "functions": [
+          "Purge",
+          "download"
+        ]
+      }
+    },
+    {
+      "id": "6-difference",
+      "task_type": "项目维护",
+      "capability_family": "像素比较",
+      "subject": "difference",
+      "state": "compare-renders",
+      "invariant": "视觉差异以解码像素为准",
+      "observable": "像素对比解释手册",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "compare-renders"
+      ],
+      "source_anchors": [
+        "internal/observe/report.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/observe/report.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "Compare",
+          "DecodeOutput"
+        ]
+      }
+    },
+    {
+      "id": "6-journal",
+      "task_type": "项目维护",
+      "capability_family": "事件序列",
+      "subject": "journal",
+      "state": "observe-service",
+      "invariant": "事件保留窗口不重用序号",
+      "observable": "事件读取与保留契约",
+      "primary_mechanism": "versioning_audit",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "observe-service"
+      ],
+      "source_anchors": [
+        "internal/model/types.go",
+        "internal/observe/report.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/model/types.go",
+          "internal/observe/report.go"
+        ],
+        "functions": [
+          "Emit",
+          "Summary"
+        ]
+      }
+    },
+    {
+      "id": "6-storage",
+      "task_type": "项目维护",
+      "capability_family": "原子状态替换",
+      "subject": "storage",
+      "state": "recover-render",
+      "invariant": "提交失败不推进内存事实",
+      "observable": "持久化安全备份说明",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/persist/store.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/persist/store.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "atomicWrite",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "7-composition",
+      "task_type": "技术讨论",
+      "capability_family": "图层合成",
+      "subject": "composition",
+      "state": "submit-render",
+      "invariant": "变换后图层顺序决定PNG像素",
+      "observable": "输出图层图与执行计划取舍",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "7-affine",
+      "task_type": "技术讨论",
+      "capability_family": "坐标变换",
+      "subject": "affine",
+      "state": "create-scene",
+      "invariant": "局部坐标与输出像素具有一致含义",
+      "observable": "浮点变换与定点几何选择",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "create-scene"
+      ],
+      "source_anchors": [
+        "internal/geometry/affine.go",
+        "internal/raster/plan.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/geometry/affine.go",
+          "internal/raster/plan.go"
+        ],
+        "functions": [
+          "Inverse",
+          "Compile"
+        ]
+      }
+    },
+    {
+      "id": "7-clipping",
+      "task_type": "技术讨论",
+      "capability_family": "嵌套裁剪",
+      "subject": "clipping",
+      "state": "submit-render",
+      "invariant": "后代绘制同时服从祖先裁剪",
+      "observable": "局部裁剪与区域布尔运算",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "7-paint",
+      "task_type": "技术讨论",
+      "capability_family": "渐变和透明度",
+      "subject": "paint",
+      "state": "submit-render",
+      "invariant": "透明叠加保持颜色采样语义",
+      "observable": "分布透明度与隔离透明度",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/paint/color.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/paint/color.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Sample",
+          "blend"
+        ]
+      }
+    },
+    {
+      "id": "7-asset",
+      "task_type": "技术讨论",
+      "capability_family": "位图素材",
+      "subject": "asset",
+      "state": "import-asset",
+      "invariant": "素材ID稳定且输入有界",
+      "observable": "输入解码信任边界评估",
+      "primary_mechanism": "resource_lifecycle",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "ImportAsset",
+          "Decode"
+        ]
+      }
+    },
+    {
+      "id": "7-retirement",
+      "task_type": "技术讨论",
+      "capability_family": "素材引用闭包",
+      "subject": "retirement",
+      "state": "retire-asset",
+      "invariant": "退役不改变冻结快照",
+      "observable": "引用复制与内容寻址选择",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retire-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/service/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/service/scenes.go"
+        ],
+        "functions": [
+          "RetireAsset",
+          "Freeze"
+        ]
+      }
+    },
+    {
+      "id": "7-revision",
+      "task_type": "技术讨论",
+      "capability_family": "场景修订",
+      "subject": "revision",
+      "state": "revise-scene",
+      "invariant": "过期编辑不覆盖当前内容",
+      "observable": "乐观修订与编辑上下文取舍",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revise-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "PutScene",
+          "Update"
+        ]
+      }
+    },
+    {
+      "id": "7-archive",
+      "task_type": "技术讨论",
+      "capability_family": "场景归档",
+      "subject": "archive",
+      "state": "archive-scene",
+      "invariant": "归档阻止新生产但保留恢复依据",
+      "observable": "归档复活时引用策略",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "archive-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/httpapi/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/httpapi/scenes.go"
+        ],
+        "functions": [
+          "SceneState",
+          "sceneState"
+        ]
+      }
+    },
+    {
+      "id": "7-freeze",
+      "task_type": "技术讨论",
+      "capability_family": "快照冻结",
+      "subject": "freeze",
+      "state": "freeze-scene",
+      "invariant": "场景和素材在同一提交捕获",
+      "observable": "快照按值捕获与血缘索引",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "freeze-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Freeze",
+          "ValidateSnapshot"
+        ]
+      }
+    },
+    {
+      "id": "7-revoke",
+      "task_type": "技术讨论",
+      "capability_family": "快照撤回",
+      "subject": "revoke",
+      "state": "revoke-snapshot",
+      "invariant": "撤回不撤销已接受承诺",
+      "observable": "撤回与承诺的领域定义",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revoke-snapshot"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Revoke",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "7-dedup",
+      "task_type": "技术讨论",
+      "capability_family": "任务幂等",
+      "subject": "dedup",
+      "state": "submit-render",
+      "invariant": "同键同语义对应同一任务",
+      "observable": "幂等收据作用域设计",
+      "primary_mechanism": "idempotency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Submit",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "7-budget",
+      "task_type": "技术讨论",
+      "capability_family": "渲染预算",
+      "subject": "budget",
+      "state": "submit-render",
+      "invariant": "预算拒绝不能留下排队承诺",
+      "observable": "面积估算与真实耗时限制",
+      "primary_mechanism": "capacity",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Compile",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "7-cancel",
+      "task_type": "技术讨论",
+      "capability_family": "执行终态竞争",
+      "subject": "cancel",
+      "state": "cancel-render",
+      "invariant": "成功与取消只有一个提交事实",
+      "observable": "取消响应与结果原子性",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "cancel-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Cancel"
+        ]
+      }
+    },
+    {
+      "id": "7-retry",
+      "task_type": "技术讨论",
+      "capability_family": "尝试隔离",
+      "subject": "retry",
+      "state": "retry-render",
+      "invariant": "旧执行不得覆盖新尝试",
+      "observable": "尝试复用与新任务取舍",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retry-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Retry"
+        ]
+      }
+    },
+    {
+      "id": "7-restart",
+      "task_type": "技术讨论",
+      "capability_family": "中断恢复",
+      "subject": "restart",
+      "state": "recover-render",
+      "invariant": "重启继续固定输入而非最新场景",
+      "observable": "至少一次执行与结果提交",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "Recover",
+          "Open"
+        ]
+      }
+    },
+    {
+      "id": "7-package",
+      "task_type": "技术讨论",
+      "capability_family": "交换包导入",
+      "subject": "package",
+      "state": "import-package",
+      "invariant": "校验或冲突失败不得部分落地",
+      "observable": "交换包共享资源冲突策略",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-package"
+      ],
+      "source_anchors": [
+        "internal/bundle/package.go",
+        "internal/service/packages.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/bundle/package.go",
+          "internal/service/packages.go"
+        ],
+        "functions": [
+          "Validate",
+          "Import"
+        ]
+      }
+    },
+    {
+      "id": "7-purge",
+      "task_type": "技术讨论",
+      "capability_family": "结果生命周期",
+      "subject": "purge",
+      "state": "purge-artifact",
+      "invariant": "清理字节保留成功任务事实",
+      "observable": "结果清理与可重现性取舍",
+      "primary_mechanism": "delete_removal",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "purge-artifact"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/httpapi/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/httpapi/jobs.go"
+        ],
+        "functions": [
+          "Purge",
+          "download"
+        ]
+      }
+    },
+    {
+      "id": "7-difference",
+      "task_type": "技术讨论",
+      "capability_family": "像素比较",
+      "subject": "difference",
+      "state": "compare-renders",
+      "invariant": "视觉差异以解码像素为准",
+      "observable": "像素指标与人眼误差权衡",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "compare-renders"
+      ],
+      "source_anchors": [
+        "internal/observe/report.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/observe/report.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "Compare",
+          "DecodeOutput"
+        ]
+      }
+    },
+    {
+      "id": "7-journal",
+      "task_type": "技术讨论",
+      "capability_family": "事件序列",
+      "subject": "journal",
+      "state": "observe-service",
+      "invariant": "事件保留窗口不重用序号",
+      "observable": "有界事件与完整审计差异",
+      "primary_mechanism": "versioning_audit",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "observe-service"
+      ],
+      "source_anchors": [
+        "internal/model/types.go",
+        "internal/observe/report.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/model/types.go",
+          "internal/observe/report.go"
+        ],
+        "functions": [
+          "Emit",
+          "Summary"
+        ]
+      }
+    },
+    {
+      "id": "7-storage",
+      "task_type": "技术讨论",
+      "capability_family": "原子状态替换",
+      "subject": "storage",
+      "state": "recover-render",
+      "invariant": "提交失败不推进内存事实",
+      "observable": "单文档原子替换与数据库取舍",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/persist/store.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/persist/store.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "atomicWrite",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "8-composition",
+      "task_type": "问题排查与诊断",
+      "capability_family": "图层合成",
+      "subject": "composition",
+      "state": "submit-render",
+      "invariant": "变换后图层顺序决定PNG像素",
+      "observable": "旋转后图层消失诊断",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "8-affine",
+      "task_type": "问题排查与诊断",
+      "capability_family": "坐标变换",
+      "subject": "affine",
+      "state": "create-scene",
+      "invariant": "局部坐标与输出像素具有一致含义",
+      "observable": "累积变换退化诊断",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "create-scene"
+      ],
+      "source_anchors": [
+        "internal/geometry/affine.go",
+        "internal/raster/plan.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/geometry/affine.go",
+          "internal/raster/plan.go"
+        ],
+        "functions": [
+          "Inverse",
+          "Compile"
+        ]
+      }
+    },
+    {
+      "id": "8-clipping",
+      "task_type": "问题排查与诊断",
+      "capability_family": "嵌套裁剪",
+      "subject": "clipping",
+      "state": "submit-render",
+      "invariant": "后代绘制同时服从祖先裁剪",
+      "observable": "祖先裁剪不可见诊断",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "8-paint",
+      "task_type": "问题排查与诊断",
+      "capability_family": "渐变和透明度",
+      "subject": "paint",
+      "state": "submit-render",
+      "invariant": "透明叠加保持颜色采样语义",
+      "observable": "透明渐变颜色偏差诊断",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/paint/color.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/paint/color.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Sample",
+          "blend"
+        ]
+      }
+    },
+    {
+      "id": "8-asset",
+      "task_type": "问题排查与诊断",
+      "capability_family": "位图素材",
+      "subject": "asset",
+      "state": "import-asset",
+      "invariant": "素材ID稳定且输入有界",
+      "observable": "PNG输入拒绝原因定位",
+      "primary_mechanism": "resource_lifecycle",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "ImportAsset",
+          "Decode"
+        ]
+      }
+    },
+    {
+      "id": "8-retirement",
+      "task_type": "问题排查与诊断",
+      "capability_family": "素材引用闭包",
+      "subject": "retirement",
+      "state": "retire-asset",
+      "invariant": "退役不改变冻结快照",
+      "observable": "素材退役后冻结失败定位",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retire-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/service/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/service/scenes.go"
+        ],
+        "functions": [
+          "RetireAsset",
+          "Freeze"
+        ]
+      }
+    },
+    {
+      "id": "8-revision",
+      "task_type": "问题排查与诊断",
+      "capability_family": "场景修订",
+      "subject": "revision",
+      "state": "revise-scene",
+      "invariant": "过期编辑不覆盖当前内容",
+      "observable": "修订提交409定位",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revise-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "PutScene",
+          "Update"
+        ]
+      }
+    },
+    {
+      "id": "8-archive",
+      "task_type": "问题排查与诊断",
+      "capability_family": "场景归档",
+      "subject": "archive",
+      "state": "archive-scene",
+      "invariant": "归档阻止新生产但保留恢复依据",
+      "observable": "归档恢复后提交失败定位",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "archive-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/httpapi/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/httpapi/scenes.go"
+        ],
+        "functions": [
+          "SceneState",
+          "sceneState"
+        ]
+      }
+    },
+    {
+      "id": "8-freeze",
+      "task_type": "问题排查与诊断",
+      "capability_family": "快照冻结",
+      "subject": "freeze",
+      "state": "freeze-scene",
+      "invariant": "场景和素材在同一提交捕获",
+      "observable": "快照内容不随编辑变化解释",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "freeze-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Freeze",
+          "ValidateSnapshot"
+        ]
+      }
+    },
+    {
+      "id": "8-revoke",
+      "task_type": "问题排查与诊断",
+      "capability_family": "快照撤回",
+      "subject": "revoke",
+      "state": "revoke-snapshot",
+      "invariant": "撤回不撤销已接受承诺",
+      "observable": "撤回后幂等重放差异定位",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revoke-snapshot"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Revoke",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "8-dedup",
+      "task_type": "问题排查与诊断",
+      "capability_family": "任务幂等",
+      "subject": "dedup",
+      "state": "submit-render",
+      "invariant": "同键同语义对应同一任务",
+      "observable": "重复键跨尺寸冲突诊断",
+      "primary_mechanism": "idempotency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Submit",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "8-budget",
+      "task_type": "问题排查与诊断",
+      "capability_family": "渲染预算",
+      "subject": "budget",
+      "state": "submit-render",
+      "invariant": "预算拒绝不能留下排队承诺",
+      "observable": "复杂图层预算拒绝诊断",
+      "primary_mechanism": "capacity",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Compile",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "8-cancel",
+      "task_type": "问题排查与诊断",
+      "capability_family": "执行终态竞争",
+      "subject": "cancel",
+      "state": "cancel-render",
+      "invariant": "成功与取消只有一个提交事实",
+      "observable": "取消与完成先后事实定位",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "cancel-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Cancel"
+        ]
+      }
+    },
+    {
+      "id": "8-retry",
+      "task_type": "问题排查与诊断",
+      "capability_family": "尝试隔离",
+      "subject": "retry",
+      "state": "retry-render",
+      "invariant": "旧执行不得覆盖新尝试",
+      "observable": "重试次数与过期结果定位",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retry-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Retry"
+        ]
+      }
+    },
+    {
+      "id": "8-restart",
+      "task_type": "问题排查与诊断",
+      "capability_family": "中断恢复",
+      "subject": "restart",
+      "state": "recover-render",
+      "invariant": "重启继续固定输入而非最新场景",
+      "observable": "进程中断后队列重建原因分析",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "Recover",
+          "Open"
+        ]
+      }
+    },
+    {
+      "id": "8-package",
+      "task_type": "问题排查与诊断",
+      "capability_family": "交换包导入",
+      "subject": "package",
+      "state": "import-package",
+      "invariant": "校验或冲突失败不得部分落地",
+      "observable": "包校验与目标素材冲突定位",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-package"
+      ],
+      "source_anchors": [
+        "internal/bundle/package.go",
+        "internal/service/packages.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/bundle/package.go",
+          "internal/service/packages.go"
+        ],
+        "functions": [
+          "Validate",
+          "Import"
+        ]
+      }
+    },
+    {
+      "id": "8-purge",
+      "task_type": "问题排查与诊断",
+      "capability_family": "结果生命周期",
+      "subject": "purge",
+      "state": "purge-artifact",
+      "invariant": "清理字节保留成功任务事实",
+      "observable": "成功任务下载410诊断",
+      "primary_mechanism": "delete_removal",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "purge-artifact"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/httpapi/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/httpapi/jobs.go"
+        ],
+        "functions": [
+          "Purge",
+          "download"
+        ]
+      }
+    },
+    {
+      "id": "8-difference",
+      "task_type": "问题排查与诊断",
+      "capability_family": "像素比较",
+      "subject": "difference",
+      "state": "compare-renders",
+      "invariant": "视觉差异以解码像素为准",
+      "observable": "对比尺寸冲突和像素差异定位",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "compare-renders"
+      ],
+      "source_anchors": [
+        "internal/observe/report.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/observe/report.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "Compare",
+          "DecodeOutput"
+        ]
+      }
+    },
+    {
+      "id": "8-journal",
+      "task_type": "问题排查与诊断",
+      "capability_family": "事件序列",
+      "subject": "journal",
+      "state": "observe-service",
+      "invariant": "事件保留窗口不重用序号",
+      "observable": "缺失早期事件与序号解释",
+      "primary_mechanism": "versioning_audit",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "observe-service"
+      ],
+      "source_anchors": [
+        "internal/model/types.go",
+        "internal/observe/report.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/model/types.go",
+          "internal/observe/report.go"
+        ],
+        "functions": [
+          "Emit",
+          "Summary"
+        ]
+      }
+    },
+    {
+      "id": "8-storage",
+      "task_type": "问题排查与诊断",
+      "capability_family": "原子状态替换",
+      "subject": "storage",
+      "state": "recover-render",
+      "invariant": "提交失败不推进内存事实",
+      "observable": "独占打开与状态损坏定位",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/persist/store.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/persist/store.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "atomicWrite",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "9-composition",
+      "task_type": "部署运维",
+      "capability_family": "图层合成",
+      "subject": "composition",
+      "state": "submit-render",
+      "invariant": "变换后图层顺序决定PNG像素",
+      "observable": "渲染CPU预算部署基准",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "9-affine",
+      "task_type": "部署运维",
+      "capability_family": "坐标变换",
+      "subject": "affine",
+      "state": "create-scene",
+      "invariant": "局部坐标与输出像素具有一致含义",
+      "observable": "跨架构几何兼容交付",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "create-scene"
+      ],
+      "source_anchors": [
+        "internal/geometry/affine.go",
+        "internal/raster/plan.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/geometry/affine.go",
+          "internal/raster/plan.go"
+        ],
+        "functions": [
+          "Inverse",
+          "Compile"
+        ]
+      }
+    },
+    {
+      "id": "9-clipping",
+      "task_type": "部署运维",
+      "capability_family": "嵌套裁剪",
+      "subject": "clipping",
+      "state": "submit-render",
+      "invariant": "后代绘制同时服从祖先裁剪",
+      "observable": "裁剪工作负载容量规划",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "9-paint",
+      "task_type": "部署运维",
+      "capability_family": "渐变和透明度",
+      "subject": "paint",
+      "state": "submit-render",
+      "invariant": "透明叠加保持颜色采样语义",
+      "observable": "透明混合输出交付门禁",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/paint/color.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/paint/color.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Sample",
+          "blend"
+        ]
+      }
+    },
+    {
+      "id": "9-asset",
+      "task_type": "部署运维",
+      "capability_family": "位图素材",
+      "subject": "asset",
+      "state": "import-asset",
+      "invariant": "素材ID稳定且输入有界",
+      "observable": "素材输入网关尺寸配置",
+      "primary_mechanism": "resource_lifecycle",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "ImportAsset",
+          "Decode"
+        ]
+      }
+    },
+    {
+      "id": "9-retirement",
+      "task_type": "部署运维",
+      "capability_family": "素材引用闭包",
+      "subject": "retirement",
+      "state": "retire-asset",
+      "invariant": "退役不改变冻结快照",
+      "observable": "带素材闭包的备份恢复演练",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retire-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/service/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/service/scenes.go"
+        ],
+        "functions": [
+          "RetireAsset",
+          "Freeze"
+        ]
+      }
+    },
+    {
+      "id": "9-revision",
+      "task_type": "部署运维",
+      "capability_family": "场景修订",
+      "subject": "revision",
+      "state": "revise-scene",
+      "invariant": "过期编辑不覆盖当前内容",
+      "observable": "单写实例迁移演练",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revise-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "PutScene",
+          "Update"
+        ]
+      }
+    },
+    {
+      "id": "9-archive",
+      "task_type": "部署运维",
+      "capability_family": "场景归档",
+      "subject": "archive",
+      "state": "archive-scene",
+      "invariant": "归档阻止新生产但保留恢复依据",
+      "observable": "归档场景交付回退演练",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "archive-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/httpapi/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/httpapi/scenes.go"
+        ],
+        "functions": [
+          "SceneState",
+          "sceneState"
+        ]
+      }
+    },
+    {
+      "id": "9-freeze",
+      "task_type": "部署运维",
+      "capability_family": "快照冻结",
+      "subject": "freeze",
+      "state": "freeze-scene",
+      "invariant": "场景和素材在同一提交捕获",
+      "observable": "快照冻结恢复点验证",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "freeze-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Freeze",
+          "ValidateSnapshot"
+        ]
+      }
+    },
+    {
+      "id": "9-revoke",
+      "task_type": "部署运维",
+      "capability_family": "快照撤回",
+      "subject": "revoke",
+      "state": "revoke-snapshot",
+      "invariant": "撤回不撤销已接受承诺",
+      "observable": "撤回快照部署保护",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revoke-snapshot"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Revoke",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "9-dedup",
+      "task_type": "部署运维",
+      "capability_family": "任务幂等",
+      "subject": "dedup",
+      "state": "submit-render",
+      "invariant": "同键同语义对应同一任务",
+      "observable": "幂等客户端重连演练",
+      "primary_mechanism": "idempotency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Submit",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "9-budget",
+      "task_type": "部署运维",
+      "capability_family": "渲染预算",
+      "subject": "budget",
+      "state": "submit-render",
+      "invariant": "预算拒绝不能留下排队承诺",
+      "observable": "有界队列过载运行方案",
+      "primary_mechanism": "capacity",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Compile",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "9-cancel",
+      "task_type": "部署运维",
+      "capability_family": "执行终态竞争",
+      "subject": "cancel",
+      "state": "cancel-render",
+      "invariant": "成功与取消只有一个提交事实",
+      "observable": "停机期间取消任务处置",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "cancel-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Cancel"
+        ]
+      }
+    },
+    {
+      "id": "9-retry",
+      "task_type": "部署运维",
+      "capability_family": "尝试隔离",
+      "subject": "retry",
+      "state": "retry-render",
+      "invariant": "旧执行不得覆盖新尝试",
+      "observable": "失败任务受控重试交付流程",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retry-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Retry"
+        ]
+      }
+    },
+    {
+      "id": "9-restart",
+      "task_type": "部署运维",
+      "capability_family": "中断恢复",
+      "subject": "restart",
+      "state": "recover-render",
+      "invariant": "重启继续固定输入而非最新场景",
+      "observable": "强制终止后的重启演练",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "Recover",
+          "Open"
+        ]
+      }
+    },
+    {
+      "id": "9-package",
+      "task_type": "部署运维",
+      "capability_family": "交换包导入",
+      "subject": "package",
+      "state": "import-package",
+      "invariant": "校验或冲突失败不得部分落地",
+      "observable": "跨环境场景包迁移演练",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-package"
+      ],
+      "source_anchors": [
+        "internal/bundle/package.go",
+        "internal/service/packages.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/bundle/package.go",
+          "internal/service/packages.go"
+        ],
+        "functions": [
+          "Validate",
+          "Import"
+        ]
+      }
+    },
+    {
+      "id": "9-purge",
+      "task_type": "部署运维",
+      "capability_family": "结果生命周期",
+      "subject": "purge",
+      "state": "purge-artifact",
+      "invariant": "清理字节保留成功任务事实",
+      "observable": "结果清理运行窗口",
+      "primary_mechanism": "delete_removal",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "purge-artifact"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/httpapi/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/httpapi/jobs.go"
+        ],
+        "functions": [
+          "Purge",
+          "download"
+        ]
+      }
+    },
+    {
+      "id": "9-difference",
+      "task_type": "部署运维",
+      "capability_family": "像素比较",
+      "subject": "difference",
+      "state": "compare-renders",
+      "invariant": "视觉差异以解码像素为准",
+      "observable": "跨平台像素一致性交付",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "compare-renders"
+      ],
+      "source_anchors": [
+        "internal/observe/report.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/observe/report.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "Compare",
+          "DecodeOutput"
+        ]
+      }
+    },
+    {
+      "id": "9-journal",
+      "task_type": "部署运维",
+      "capability_family": "事件序列",
+      "subject": "journal",
+      "state": "observe-service",
+      "invariant": "事件保留窗口不重用序号",
+      "observable": "事件序列运行审计",
+      "primary_mechanism": "versioning_audit",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "observe-service"
+      ],
+      "source_anchors": [
+        "internal/model/types.go",
+        "internal/observe/report.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/model/types.go",
+          "internal/observe/report.go"
+        ],
+        "functions": [
+          "Emit",
+          "Summary"
+        ]
+      }
+    },
+    {
+      "id": "9-storage",
+      "task_type": "部署运维",
+      "capability_family": "原子状态替换",
+      "subject": "storage",
+      "state": "recover-render",
+      "invariant": "提交失败不推进内存事实",
+      "observable": "状态盘故障和实例锁处置",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/persist/store.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/persist/store.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "atomicWrite",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "10-composition",
+      "task_type": "泛Agent需求",
+      "capability_family": "图层合成",
+      "subject": "composition",
+      "state": "submit-render",
+      "invariant": "变换后图层顺序决定PNG像素",
+      "observable": "渲染示例与来源清单制作",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "10-affine",
+      "task_type": "泛Agent需求",
+      "capability_family": "坐标变换",
+      "subject": "affine",
+      "state": "create-scene",
+      "invariant": "局部坐标与输出像素具有一致含义",
+      "observable": "坐标变换教学素材",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "create-scene"
+      ],
+      "source_anchors": [
+        "internal/geometry/affine.go",
+        "internal/raster/plan.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/geometry/affine.go",
+          "internal/raster/plan.go"
+        ],
+        "functions": [
+          "Inverse",
+          "Compile"
+        ]
+      }
+    },
+    {
+      "id": "10-clipping",
+      "task_type": "泛Agent需求",
+      "capability_family": "嵌套裁剪",
+      "subject": "clipping",
+      "state": "submit-render",
+      "invariant": "后代绘制同时服从祖先裁剪",
+      "observable": "嵌套裁剪案例集整理",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Compile",
+          "Render"
+        ]
+      }
+    },
+    {
+      "id": "10-paint",
+      "task_type": "泛Agent需求",
+      "capability_family": "渐变和透明度",
+      "subject": "paint",
+      "state": "submit-render",
+      "invariant": "透明叠加保持颜色采样语义",
+      "observable": "透明渐变色板生成",
+      "primary_mechanism": "policy_rules",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/paint/color.go",
+        "internal/raster/render.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/paint/color.go",
+          "internal/raster/render.go"
+        ],
+        "functions": [
+          "Sample",
+          "blend"
+        ]
+      }
+    },
+    {
+      "id": "10-asset",
+      "task_type": "泛Agent需求",
+      "capability_family": "位图素材",
+      "subject": "asset",
+      "state": "import-asset",
+      "invariant": "素材ID稳定且输入有界",
+      "observable": "PNG素材接入来源清单",
+      "primary_mechanism": "resource_lifecycle",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "ImportAsset",
+          "Decode"
+        ]
+      }
+    },
+    {
+      "id": "10-retirement",
+      "task_type": "泛Agent需求",
+      "capability_family": "素材引用闭包",
+      "subject": "retirement",
+      "state": "retire-asset",
+      "invariant": "退役不改变冻结快照",
+      "observable": "素材引用影响证据汇编",
+      "primary_mechanism": "lineage",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retire-asset"
+      ],
+      "source_anchors": [
+        "internal/service/assets.go",
+        "internal/service/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/assets.go",
+          "internal/service/scenes.go"
+        ],
+        "functions": [
+          "RetireAsset",
+          "Freeze"
+        ]
+      }
+    },
+    {
+      "id": "10-revision",
+      "task_type": "泛Agent需求",
+      "capability_family": "场景修订",
+      "subject": "revision",
+      "state": "revise-scene",
+      "invariant": "过期编辑不覆盖当前内容",
+      "observable": "并行编辑冲突复现资料",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revise-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "PutScene",
+          "Update"
+        ]
+      }
+    },
+    {
+      "id": "10-archive",
+      "task_type": "泛Agent需求",
+      "capability_family": "场景归档",
+      "subject": "archive",
+      "state": "archive-scene",
+      "invariant": "归档阻止新生产但保留恢复依据",
+      "observable": "归档恢复操作演示素材",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "archive-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/httpapi/scenes.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/httpapi/scenes.go"
+        ],
+        "functions": [
+          "SceneState",
+          "sceneState"
+        ]
+      }
+    },
+    {
+      "id": "10-freeze",
+      "task_type": "泛Agent需求",
+      "capability_family": "快照冻结",
+      "subject": "freeze",
+      "state": "freeze-scene",
+      "invariant": "场景和素材在同一提交捕获",
+      "observable": "冻结快照可复现样本包",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "freeze-scene"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Freeze",
+          "ValidateSnapshot"
+        ]
+      }
+    },
+    {
+      "id": "10-revoke",
+      "task_type": "泛Agent需求",
+      "capability_family": "快照撤回",
+      "subject": "revoke",
+      "state": "revoke-snapshot",
+      "invariant": "撤回不撤销已接受承诺",
+      "observable": "快照撤回情景说明材料",
+      "primary_mechanism": "state_machine",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "revoke-snapshot"
+      ],
+      "source_anchors": [
+        "internal/service/scenes.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/scenes.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Revoke",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "10-dedup",
+      "task_type": "泛Agent需求",
+      "capability_family": "任务幂等",
+      "subject": "dedup",
+      "state": "submit-render",
+      "invariant": "同键同语义对应同一任务",
+      "observable": "幂等提交调用记录整理",
+      "primary_mechanism": "idempotency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "Submit",
+          "Validate"
+        ]
+      }
+    },
+    {
+      "id": "10-budget",
+      "task_type": "泛Agent需求",
+      "capability_family": "渲染预算",
+      "subject": "budget",
+      "state": "submit-render",
+      "invariant": "预算拒绝不能留下排队承诺",
+      "observable": "渲染预算对照素材",
+      "primary_mechanism": "capacity",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "submit-render"
+      ],
+      "source_anchors": [
+        "internal/raster/plan.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/raster/plan.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "Compile",
+          "Submit"
+        ]
+      }
+    },
+    {
+      "id": "10-cancel",
+      "task_type": "泛Agent需求",
+      "capability_family": "执行终态竞争",
+      "subject": "cancel",
+      "state": "cancel-render",
+      "invariant": "成功与取消只有一个提交事实",
+      "observable": "取消竞态观察证据整理",
+      "primary_mechanism": "concurrency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "cancel-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Cancel"
+        ]
+      }
+    },
+    {
+      "id": "10-retry",
+      "task_type": "泛Agent需求",
+      "capability_family": "尝试隔离",
+      "subject": "retry",
+      "state": "retry-render",
+      "invariant": "旧执行不得覆盖新尝试",
+      "observable": "任务尝试历史资料汇编",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "retry-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/service/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/service/jobs.go"
+        ],
+        "functions": [
+          "step",
+          "Retry"
+        ]
+      }
+    },
+    {
+      "id": "10-restart",
+      "task_type": "泛Agent需求",
+      "capability_family": "中断恢复",
+      "subject": "restart",
+      "state": "recover-render",
+      "invariant": "重启继续固定输入而非最新场景",
+      "observable": "重启恢复演练记录整理",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/engine/worker.go",
+        "internal/persist/store.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/engine/worker.go",
+          "internal/persist/store.go"
+        ],
+        "functions": [
+          "Recover",
+          "Open"
+        ]
+      }
+    },
+    {
+      "id": "10-package",
+      "task_type": "泛Agent需求",
+      "capability_family": "交换包导入",
+      "subject": "package",
+      "state": "import-package",
+      "invariant": "校验或冲突失败不得部分落地",
+      "observable": "交换包跨环境样本制作",
+      "primary_mechanism": "export_freeze",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "import-package"
+      ],
+      "source_anchors": [
+        "internal/bundle/package.go",
+        "internal/service/packages.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/bundle/package.go",
+          "internal/service/packages.go"
+        ],
+        "functions": [
+          "Validate",
+          "Import"
+        ]
+      }
+    },
+    {
+      "id": "10-purge",
+      "task_type": "泛Agent需求",
+      "capability_family": "结果生命周期",
+      "subject": "purge",
+      "state": "purge-artifact",
+      "invariant": "清理字节保留成功任务事实",
+      "observable": "结果保留与清理清单",
+      "primary_mechanism": "delete_removal",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "purge-artifact"
+      ],
+      "source_anchors": [
+        "internal/service/jobs.go",
+        "internal/httpapi/jobs.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/service/jobs.go",
+          "internal/httpapi/jobs.go"
+        ],
+        "functions": [
+          "Purge",
+          "download"
+        ]
+      }
+    },
+    {
+      "id": "10-difference",
+      "task_type": "泛Agent需求",
+      "capability_family": "像素比较",
+      "subject": "difference",
+      "state": "compare-renders",
+      "invariant": "视觉差异以解码像素为准",
+      "observable": "视觉差异样本对照图",
+      "primary_mechanism": "snapshot_consistency",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "compare-renders"
+      ],
+      "source_anchors": [
+        "internal/observe/report.go",
+        "internal/codec/png.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/observe/report.go",
+          "internal/codec/png.go"
+        ],
+        "functions": [
+          "Compare",
+          "DecodeOutput"
+        ]
+      }
+    },
+    {
+      "id": "10-journal",
+      "task_type": "泛Agent需求",
+      "capability_family": "事件序列",
+      "subject": "journal",
+      "state": "observe-service",
+      "invariant": "事件保留窗口不重用序号",
+      "observable": "有界事件时间线重建",
+      "primary_mechanism": "versioning_audit",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "observe-service"
+      ],
+      "source_anchors": [
+        "internal/model/types.go",
+        "internal/observe/report.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/model/types.go",
+          "internal/observe/report.go"
+        ],
+        "functions": [
+          "Emit",
+          "Summary"
+        ]
+      }
+    },
+    {
+      "id": "10-storage",
+      "task_type": "泛Agent需求",
+      "capability_family": "原子状态替换",
+      "subject": "storage",
+      "state": "recover-render",
+      "invariant": "提交失败不推进内存事实",
+      "observable": "状态副本一致性证据归档",
+      "primary_mechanism": "recovery_rollback",
+      "extension_seam_id": null,
+      "workflow_ids": [
+        "recover-render"
+      ],
+      "source_anchors": [
+        "internal/persist/store.go",
+        "internal/persist/validate.go"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "internal/persist/store.go",
+          "internal/persist/validate.go"
+        ],
+        "functions": [
+          "atomicWrite",
+          "Validate"
+        ]
+      }
+    }
+  ]
+}

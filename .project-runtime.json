@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "language": "Go",
+  "project_shape": "backend",
+  "source_extensions": [
+    ".go"
+  ],
+  "build_command": "go build ./...",
+  "testing": "deferred",
+  "workflow_checks": [
+    {
+      "workflow_id": "create-scene",
+      "command": "python3 scripts/walkthrough.py --workflow create-scene"
+    },
+    {
+      "workflow_id": "revise-scene",
+      "command": "python3 scripts/walkthrough.py --workflow revise-scene"
+    },
+    {
+      "workflow_id": "archive-scene",
+      "command": "python3 scripts/walkthrough.py --workflow archive-scene"
+    },
+    {
+      "workflow_id": "import-asset",
+      "command": "python3 scripts/walkthrough.py --workflow import-asset"
+    },
+    {
+      "workflow_id": "retire-asset",
+      "command": "python3 scripts/walkthrough.py --workflow retire-asset"
+    },
+    {
+      "workflow_id": "freeze-scene",
+      "command": "python3 scripts/walkthrough.py --workflow freeze-scene"
+    },
+    {
+      "workflow_id": "revoke-snapshot",
+      "command": "python3 scripts/walkthrough.py --workflow revoke-snapshot"
+    },
+    {
+      "workflow_id": "submit-render",
+      "command": "python3 scripts/walkthrough.py --workflow submit-render"
+    },
+    {
+      "workflow_id": "cancel-render",
+      "command": "python3 scripts/walkthrough.py --workflow cancel-render"
+    },
+    {
+      "workflow_id": "retry-render",
+      "command": "python3 scripts/walkthrough.py --workflow retry-render"
+    },
+    {
+      "workflow_id": "recover-render",
+      "command": "python3 scripts/walkthrough.py --workflow recover-render"
+    },
+    {
+      "workflow_id": "export-package",
+      "command": "python3 scripts/walkthrough.py --workflow export-package"
+    },
+    {
+      "workflow_id": "import-package",
+      "command": "python3 scripts/walkthrough.py --workflow import-package"
+    },
+    {
+      "workflow_id": "compare-renders",
+      "command": "python3 scripts/walkthrough.py --workflow compare-renders"
+    },
+    {
+      "workflow_id": "purge-artifact",
+      "command": "python3 scripts/walkthrough.py --workflow purge-artifact"
+    },
+    {
+      "workflow_id": "observe-service",
+      "command": "python3 scripts/walkthrough.py --workflow observe-service"
+    }
+  ],
+  "environment": {
+    "go": ">=1.22",
+    "python": ">=3.9 for walkthrough",
+    "platform": "macOS or Linux; advisory file locking required"
+  },
+  "run_command": "go run ./cmd/atlas"
+}

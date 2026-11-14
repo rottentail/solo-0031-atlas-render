@@ -1,0 +1,4 @@
+/var/
+/atlas
+*.tmp
+__pycache__/

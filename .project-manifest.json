@@ -1,0 +1,370 @@
+{
+  "schema_version": 1,
+  "name": "solo-0031-atlas-render",
+  "project_shape": "backend",
+  "modules": [
+    {
+      "id": "model",
+      "path": "internal/model",
+      "responsibility": "文档、快照、任务、结果及领域错误"
+    },
+    {
+      "id": "geometry",
+      "path": "internal/geometry",
+      "responsibility": "仿射矩阵、逆变换和局部包含判定"
+    },
+    {
+      "id": "paint",
+      "path": "internal/paint",
+      "responsibility": "颜色解析与线性渐变采样"
+    },
+    {
+      "id": "scene",
+      "path": "internal/scene",
+      "responsibility": "有界场景图校验与素材引用遍历"
+    },
+    {
+      "id": "codec",
+      "path": "internal/codec",
+      "responsibility": "PNG输入输出编码及尺寸限制"
+    },
+    {
+      "id": "raster",
+      "path": "internal/raster",
+      "responsibility": "场景编译、裁剪链和逐像素合成"
+    },
+    {
+      "id": "persist",
+      "path": "internal/persist",
+      "responsibility": "独占打开、状态校验和原子替换"
+    },
+    {
+      "id": "service",
+      "path": "internal/service",
+      "responsibility": "场景、素材、快照和任务业务转换"
+    },
+    {
+      "id": "engine",
+      "path": "internal/engine",
+      "responsibility": "持久队列领取、执行、取消及恢复"
+    },
+    {
+      "id": "bundle",
+      "path": "internal/bundle",
+      "responsibility": "带校验的快照交换包"
+    },
+    {
+      "id": "observe",
+      "path": "internal/observe",
+      "responsibility": "像素差异与服务容量观察"
+    },
+    {
+      "id": "httpapi",
+      "path": "internal/httpapi",
+      "responsibility": "有界JSON解析和HTTP接口"
+    }
+  ],
+  "workflows": [
+    {
+      "id": "create-scene",
+      "name": "创建场景",
+      "entry": "PUT /v1/scenes/{id}",
+      "success": "校验几何后写入第一个修订",
+      "failure": "非法图层拒绝且目标不存在",
+      "module_ids": [
+        "httpapi",
+        "service",
+        "scene",
+        "persist"
+      ],
+      "steps": [
+        "经公开HTTP入口完成领域转换",
+        "通过存储或渲染结果观察已提交事实"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow create-scene"
+    },
+    {
+      "id": "revise-scene",
+      "name": "修订场景",
+      "entry": "PUT /v1/scenes/{id}",
+      "success": "以当前版本保存并递增修订",
+      "failure": "旧版本返回409",
+      "module_ids": [
+        "httpapi",
+        "service",
+        "persist"
+      ],
+      "steps": [
+        "经公开HTTP入口完成领域转换",
+        "通过存储或渲染结果观察已提交事实"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow revise-scene"
+    },
+    {
+      "id": "archive-scene",
+      "name": "归档和恢复场景",
+      "entry": "POST /v1/scenes/{id}/state",
+      "success": "场景归档后可按版本恢复",
+      "failure": "归档场景禁止生成新快照",
+      "module_ids": [
+        "httpapi",
+        "service",
+        "persist"
+      ],
+      "steps": [
+        "经公开HTTP入口完成领域转换",
+        "通过存储或渲染结果观察已提交事实"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow archive-scene"
+    },
+    {
+      "id": "import-asset",
+      "name": "导入位图素材",
+      "entry": "PUT /v1/assets/{id}",
+      "success": "限制PNG尺寸并保存内容摘要",
+      "failure": "损坏PNG拒绝且同ID异内容冲突",
+      "module_ids": [
+        "httpapi",
+        "service",
+        "codec",
+        "persist"
+      ],
+      "steps": [
+        "经公开HTTP入口完成领域转换",
+        "通过存储或渲染结果观察已提交事实"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow import-asset"
+    },
+    {
+      "id": "retire-asset",
+      "name": "素材退役与历史渲染",
+      "entry": "POST /v1/assets/{id}/retire",
+      "success": "退役阻止新快照且旧快照仍可渲染",
+      "failure": "新冻结引用退役素材返回409",
+      "module_ids": [
+        "httpapi",
+        "service",
+        "persist",
+        "raster"
+      ],
+      "steps": [
+        "经公开HTTP入口完成领域转换",
+        "通过存储或渲染结果观察已提交事实"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow retire-asset"
+    },
+    {
+      "id": "freeze-scene",
+      "name": "冻结场景快照",
+      "entry": "POST /v1/scenes/{id}/snapshots",
+      "success": "在同一次状态提交中捕获场景修订和素材字节",
+      "failure": "旧修订或缺少可用素材拒绝",
+      "module_ids": [
+        "httpapi",
+        "service",
+        "scene",
+        "persist"
+      ],
+      "steps": [
+        "经公开HTTP入口完成领域转换",
+        "通过存储或渲染结果观察已提交事实"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow freeze-scene"
+    },
+    {
+      "id": "revoke-snapshot",
+      "name": "撤回快照",
+      "entry": "POST /v1/snapshots/{id}/revoke",
+      "success": "禁止新任务且已接受任务继续使用固定内容",
+      "failure": "撤回后新幂等键提交返回409",
+      "module_ids": [
+        "httpapi",
+        "service",
+        "persist",
+        "engine"
+      ],
+      "steps": [
+        "经公开HTTP入口完成领域转换",
+        "通过存储或渲染结果观察已提交事实"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow revoke-snapshot"
+    },
+    {
+      "id": "submit-render",
+      "name": "提交并下载渲染",
+      "entry": "POST /v1/jobs",
+      "success": "入队前编译预算检查、执行后得到PNG",
+      "failure": "幂等键不同语义复用返回409",
+      "module_ids": [
+        "httpapi",
+        "service",
+        "raster",
+        "engine",
+        "persist",
+        "codec"
+      ],
+      "steps": [
+        "经公开HTTP入口完成领域转换",
+        "通过存储或渲染结果观察已提交事实"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow submit-render"
+    },
+    {
+      "id": "cancel-render",
+      "name": "取消渲染任务",
+      "entry": "POST /v1/jobs/{id}/cancel",
+      "success": "取消提交后任务保持cancelled且无结果",
+      "failure": "完成终态不可取消",
+      "module_ids": [
+        "httpapi",
+        "service",
+        "engine",
+        "persist"
+      ],
+      "steps": [
+        "经公开HTTP入口完成领域转换",
+        "通过存储或渲染结果观察已提交事实"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow cancel-render"
+    },
+    {
+      "id": "retry-render",
+      "name": "重试被取消任务",
+      "entry": "POST /v1/jobs/{id}/retry",
+      "success": "递增尝试次数并使用原始固定内容",
+      "failure": "成功任务不得被重试",
+      "module_ids": [
+        "httpapi",
+        "service",
+        "engine",
+        "persist"
+      ],
+      "steps": [
+        "经公开HTTP入口完成领域转换",
+        "通过存储或渲染结果观察已提交事实"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow retry-render"
+    },
+    {
+      "id": "recover-render",
+      "name": "进程重启恢复",
+      "entry": "进程启动 Recover",
+      "success": "running重新入队并按原快照完成",
+      "failure": "持久文件损坏时拒绝启动",
+      "module_ids": [
+        "engine",
+        "persist",
+        "model",
+        "raster"
+      ],
+      "steps": [
+        "经公开HTTP入口完成领域转换",
+        "通过存储或渲染结果观察已提交事实"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow recover-render"
+    },
+    {
+      "id": "export-package",
+      "name": "导出快照交换包",
+      "entry": "GET /v1/snapshots/{id}/package",
+      "success": "返回含素材闭包和双层摘要的包",
+      "failure": "不存在快照返回404",
+      "module_ids": [
+        "httpapi",
+        "service",
+        "bundle",
+        "persist"
+      ],
+      "steps": [
+        "经公开HTTP入口完成领域转换",
+        "通过存储或渲染结果观察已提交事实"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow export-package"
+    },
+    {
+      "id": "import-package",
+      "name": "原子导入交换包",
+      "entry": "POST /v1/imports/{id}",
+      "success": "验证摘要和闭包后一次提交场景及素材",
+      "failure": "损坏包不写入且同名异素材冲突",
+      "module_ids": [
+        "httpapi",
+        "service",
+        "bundle",
+        "persist"
+      ],
+      "steps": [
+        "经公开HTTP入口完成领域转换",
+        "通过存储或渲染结果观察已提交事实"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow import-package"
+    },
+    {
+      "id": "compare-renders",
+      "name": "比较渲染结果",
+      "entry": "POST /v1/compare",
+      "success": "相同固定内容零差异、改色后可见差异",
+      "failure": "尺寸不同或结果已清理拒绝",
+      "module_ids": [
+        "httpapi",
+        "service",
+        "observe",
+        "codec"
+      ],
+      "steps": [
+        "经公开HTTP入口完成领域转换",
+        "通过存储或渲染结果观察已提交事实"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow compare-renders"
+    },
+    {
+      "id": "purge-artifact",
+      "name": "清理结果字节",
+      "entry": "DELETE /v1/artifacts/{id}",
+      "success": "保留成功任务事实并移除PNG字节",
+      "failure": "下载已清理结果返回410",
+      "module_ids": [
+        "httpapi",
+        "service",
+        "persist"
+      ],
+      "steps": [
+        "经公开HTTP入口完成领域转换",
+        "通过存储或渲染结果观察已提交事实"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow purge-artifact"
+    },
+    {
+      "id": "observe-service",
+      "name": "观察执行过程",
+      "entry": "GET /v1/status + GET /v1/events",
+      "success": "返回状态计数和有序领域事件",
+      "failure": "不存在实体仍按原入口返回404",
+      "module_ids": [
+        "httpapi",
+        "observe",
+        "persist"
+      ],
+      "steps": [
+        "经公开HTTP入口完成领域转换",
+        "通过存储或渲染结果观察已提交事实"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow observe-service"
+    }
+  ],
+  "complexity": {
+    "mechanisms": [
+      "state_machine",
+      "concurrency",
+      "snapshot_consistency",
+      "recovery_rollback",
+      "resource_lifecycle",
+      "export_freeze",
+      "idempotency",
+      "capacity",
+      "lineage",
+      "versioning_audit",
+      "delete_removal"
+    ]
+  }
+}
