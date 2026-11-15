@@ -21,6 +21,9 @@ python3 scripts/walkthrough.py --workflow retire-asset
 python3 scripts/walkthrough.py --workflow cancel-render
 python3 scripts/walkthrough.py --workflow retry-render
 python3 scripts/walkthrough.py --workflow recover-render
+python3 scripts/walkthrough.py --workflow batch-render
+python3 scripts/walkthrough.py --workflow batch-recover
+python3 scripts/walkthrough.py --workflow batch-capacity
 python3 scripts/walkthrough.py --workflow import-package
 python3 scripts/walkthrough.py --workflow compare-renders
 ```
@@ -35,6 +38,12 @@ python3 scripts/walkthrough.py --workflow compare-renders
 4. `GET /v1/jobs/{id}` 等待 `succeeded`，再读取 `GET /v1/artifacts/{artifactId}`。
 
 同一幂等键和同一请求返回原任务；同键不同请求返回 409。快照包含引用素材的字节，后续场景编辑或素材退役不改变它。撤回快照会阻止新工作，已接受的任务仍使用固定输入。任务取消和结果提交竞争同一个持久状态；终态完成后不可取消。
+
+## 一次提交多个尺寸
+
+需要同一快照的多个输出尺寸时，用 `POST /v1/batches` 一次提交 `snapshotId` 和去重的 `scales` 数组（元素为1或2），并带 `Idempotency-Key`。服务端在单个持久事务中接受整组：集合记录和全部成员任务同时落地，或全部不落地；预算或队列容量不足直接429，不会留下半个集合。相同幂等键重放返回同一集合，成员任务不会增多；同键改换语义返回409。
+
+`GET /v1/batches/{id}` 返回集合状态和每个成员的任务状态、attempt和结果ID。集合状态为 `active`（仍有成员未终态）、`settled`（全部终态但有失败或取消）或 `completed`（全部成功）。`POST /v1/batches/{id}/cancel` 在一个事务中取消所有未终态成员，已完成成员的结果保留；`POST /v1/batches/{id}/retry` 只重试 failed/cancelled 成员并把集合重新打开。成员仍是普通任务，历史的单尺寸 `/v1/jobs` 接口、取消和重试全部继续有效；进程重启后集合状态从成员事实重新推导。
 
 ## 范围与限制
 

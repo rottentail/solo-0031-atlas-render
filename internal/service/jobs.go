@@ -16,7 +16,7 @@ func (s *Service) Submit(snapshotID string, scale int, key string) (model.Job, e
 	fingerprint := model.CanonicalDigest([]any{snapshotID, scale})
 	e := s.Store.Update(func(st *model.State) error {
 		if r, ok := st.Receipts[key]; ok {
-			if r.Fingerprint != fingerprint {
+			if r.Fingerprint != fingerprint || r.JobID == "" {
 				return model.Conflict("idempotency key used for different request")
 			}
 			out = st.Jobs[r.JobID]
@@ -32,12 +32,7 @@ func (s *Service) Submit(snapshotID string, scale int, key string) (model.Job, e
 		if _, e := raster.Compile(snap, scale); e != nil {
 			return e
 		}
-		pending := 0
-		for _, j := range st.Jobs {
-			if j.State == "queued" || j.State == "running" {
-				pending++
-			}
-		}
+		pending := pendingJobs(st)
 		if pending >= 64 {
 			return model.Busy("render queue is full")
 		}
@@ -67,6 +62,7 @@ func (s *Service) Cancel(id string) (model.Job, error) {
 		j.State = "cancelled"
 		j.UpdatedAt = time.Now().UTC()
 		st.Jobs[id] = j
+		st.ReconcileBatches()
 		st.Emit("job.cancelled", id)
 		out = j
 		return nil
@@ -83,12 +79,7 @@ func (s *Service) Retry(id string) (model.Job, error) {
 		if j.State != "failed" && j.State != "cancelled" {
 			return model.Conflict("only failed or cancelled jobs can retry")
 		}
-		n := 0
-		for _, v := range st.Jobs {
-			if v.State == "queued" || v.State == "running" {
-				n++
-			}
-		}
+		n := pendingJobs(st)
 		if n >= 64 {
 			return model.Busy("render queue is full")
 		}
@@ -97,6 +88,7 @@ func (s *Service) Retry(id string) (model.Job, error) {
 		j.Attempt++
 		j.UpdatedAt = time.Now().UTC()
 		st.Jobs[id] = j
+		st.ReconcileBatches()
 		st.Emit("job.retried", id)
 		out = j
 		return nil

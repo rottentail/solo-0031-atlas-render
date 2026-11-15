@@ -101,6 +101,203 @@ class Demo:
     def submit(self, snapshot, key='render-one', scale=1):
         return self.call('POST', '/v1/jobs', {'snapshotId': snapshot['id'], 'scale': scale}, 202, {'Idempotency-Key': key})
 
+    def submit_batch(self, snapshot, scales, key):
+        return self.call('POST', '/v1/batches', {'snapshotId': snapshot['id'], 'scales': scales}, 202, {'Idempotency-Key': key})
+
+    def get_batch(self, batch_id):
+        return self.call('GET', '/v1/batches/' + batch_id)
+
+    def wait_batch(self, batch_id, wanted=('settled', 'completed'), timeout=20):
+        deadline = time.monotonic() + timeout
+        while time.monotonic() < deadline:
+            batch = self.get_batch(batch_id)
+            if batch['state'] in wanted:
+                return batch
+            time.sleep(.025)
+        raise RuntimeError('batch deadline exceeded')
+
+    def wait_job_state(self, job_id, wanted):
+        deadline = time.monotonic() + 20
+        while time.monotonic() < deadline:
+            job = self.call('GET', '/v1/jobs/' + job_id)
+            if job['state'] in wanted:
+                return job
+            time.sleep(.025)
+        raise RuntimeError(f'job {job_id} never reached {wanted}')
+
+    def wait_pending_below(self, limit):
+        deadline = time.monotonic() + 60
+        while time.monotonic() < deadline:
+            jobs = self.call('GET', '/v1/status')['jobs']
+            if jobs.get('queued', 0) + jobs.get('running', 0) < limit:
+                return
+            time.sleep(.1)
+        raise RuntimeError('queue never drained below the limit')
+
+
+def heavy_scene(width, height, layers):
+    doc = sample()
+    doc['width'] = width
+    doc['height'] = height
+    doc['layers'] = [dict(doc['layers'][0], id=f'sheet-{i}', width=width, height=height,
+                          transform={'scaleX': 1, 'scaleY': 1}) for i in range(layers)]
+    return doc
+
+
+def member_map(batch):
+    return {m['scale']: m for m in batch['members']}
+
+
+def run_batch(demo, workflow, snapshot, current, put):
+    if workflow == 'batch-render':
+        # 1. Whole-set commitment: both members exist in one response.
+        batch = demo.submit_batch(snapshot, [2, 1], 'batch-happy')
+        assert batch['state'] == 'active'
+        assert batch['scales'] == [1, 2]
+        job_ids = [m['jobId'] for m in batch['members']]
+        assert len(set(job_ids)) == 2
+        # 2. Idempotent replay returns the identical set; a changed request
+        #    under the same key conflicts and must not create more jobs.
+        replay = demo.submit_batch(snapshot, [1, 2], 'batch-happy')
+        assert replay['id'] == batch['id'] and [m['jobId'] for m in replay['members']] == job_ids
+        demo.call('POST', '/v1/batches', {'snapshotId': snapshot['id'], 'scales': [1]}, 409,
+                  {'Idempotency-Key': 'batch-happy'})
+        # Single-job receipt names never collide with batch receipts.
+        demo.call('POST', '/v1/jobs', {'snapshotId': snapshot['id'], 'scale': 1}, 409,
+                  {'Idempotency-Key': 'batch-happy'})
+        # 3. Malformed sets are rejected before anything is committed.
+        demo.call('POST', '/v1/batches', {'snapshotId': snapshot['id'], 'scales': []}, 400,
+                  {'Idempotency-Key': 'batch-empty'})
+        demo.call('POST', '/v1/batches', {'snapshotId': snapshot['id'], 'scales': [1, 1]}, 400,
+                  {'Idempotency-Key': 'batch-dup'})
+        demo.call('POST', '/v1/batches', {'snapshotId': snapshot['id'], 'scales': [3]}, 400,
+                  {'Idempotency-Key': 'batch-bad-scale'})
+        # 4. All members complete and the set becomes completed with real PNGs.
+        done = demo.wait_batch(batch['id'])
+        assert done['state'] == 'completed'
+        artifacts = {}
+        for member in done['members']:
+            assert member['state'] == 'succeeded' and member['artifactId']
+            png = demo.call('GET', '/v1/artifacts/' + member['artifactId'])
+            assert png[:8] == b'\x89PNG\r\n\x1a\n'
+            expected = (snapshot['document']['width'] * member['scale'],
+                        snapshot['document']['height'] * member['scale'])
+            assert struct.unpack('>II', png[16:24]) == expected
+            artifacts[member['scale']] = member['artifactId']
+        # 5. Mixed outcomes: member 1 finishes; member 2 is interrupted while
+        #    it renders, and the set settles with both facts explainable.
+        heavy_doc = heavy_scene(1000, 1000, 9)
+        put(heavy_doc, current['revision'])
+        heavy_snap = demo.call('POST', '/v1/scenes/emblem/snapshots',
+                               {'expectedRevision': current['revision'] + 1}, 201)
+        mixed = demo.submit_batch(heavy_snap, [1, 2], 'batch-mixed')
+        first, second = mixed['members']
+        demo.wait_job_state(first['jobId'], ('succeeded',))
+        # Member 2 is now claimed by the worker; interrupt its in-flight render.
+        demo.wait_job_state(second['jobId'], ('running',))
+        demo.call('POST', '/v1/batches/' + mixed['id'] + '/cancel')
+        interrupted = demo.wait_batch(mixed['id'])
+        assert interrupted['state'] == 'settled'
+        members = member_map(interrupted)
+        assert members[1]['state'] == 'succeeded' and members[1].get('artifactId')
+        assert members[2]['state'] == 'cancelled' and not members[2].get('artifactId')
+        assert demo.call('GET', '/v1/jobs/' + first['jobId'])['state'] == 'succeeded'
+        assert demo.call('GET', '/v1/jobs/' + second['jobId'])['state'] == 'cancelled'
+        # Re-cancelling a finished set is a conflict, not a new transition.
+        demo.call('POST', '/v1/batches/' + mixed['id'] + '/cancel', status=409)
+        # 6. Cancel meets retry: only the cancelled member reopens; the
+        #    successful member and its artifact stay untouched.
+        reopened = demo.call('POST', '/v1/batches/' + mixed['id'] + '/retry', status=202)
+        assert reopened['state'] == 'active'
+        reopened_members = member_map(reopened)
+        assert reopened_members[1]['state'] == 'succeeded' and reopened_members[1].get('artifactId')
+        assert reopened_members[2]['state'] == 'queued' and reopened_members[2]['attempt'] == 2
+        demo.call('POST', '/v1/batches/' + mixed['id'] + '/cancel')
+        again = demo.wait_batch(mixed['id'])
+        assert again['state'] == 'settled'
+        assert member_map(again)[1]['state'] == 'succeeded'
+        assert member_map(again)[2]['state'] == 'cancelled'
+        # The final retry lets the remaining member finish; the set completes.
+        demo.call('POST', '/v1/batches/' + mixed['id'] + '/retry', status=202)
+        finished = demo.wait_batch(mixed['id'], wanted=('completed',))
+        assert finished['state'] == 'completed'
+        assert all(m['state'] == 'succeeded' for m in finished['members'])
+        demo.call('POST', '/v1/batches/' + mixed['id'] + '/retry', status=409)
+        # 7. Member jobs remain addressable through the historical single-job API.
+        for job_id in job_ids:
+            assert demo.call('GET', '/v1/jobs/' + job_id)['state'] == 'succeeded'
+        status = demo.call('GET', '/v1/status')
+        assert status['batchCount'] >= 2 and status['batches'].get('completed', 0) >= 2
+        events = demo.call('GET', '/v1/events')
+        kinds = {e['kind'] for e in events}
+        assert {'batch.queued', 'batch.completed', 'batch.cancelled', 'batch.retried',
+                'batch.settled', 'batch.reopened'} & kinds
+        return {'workflow': workflow, 'state': done['state'],
+                'artifacts': artifacts, 'mixedOutcome': 'succeeded+cancelled->completed'}
+
+    if workflow == 'batch-recover':
+        heavy_doc = heavy_scene(700, 700, 16)
+        put(heavy_doc, current['revision'])
+        heavy_snap = demo.call('POST', '/v1/scenes/emblem/snapshots',
+                               {'expectedRevision': current['revision'] + 1}, 201)
+        batch = demo.submit_batch(heavy_snap, [1, 2], 'batch-restart')
+        first, second = batch['members']
+        # Let the first member finish, then SIGKILL while the second runs.
+        demo.wait_job_state(first['jobId'], ('succeeded',))
+        demo.wait_job_state(second['jobId'], ('running', 'queued'))
+        demo.stop(abrupt=True)
+        demo.start()
+        recovered = demo.get_batch(batch['id'])
+        assert recovered['state'] == 'active'
+        members = member_map(recovered)
+        assert members[1]['state'] == 'succeeded'
+        assert members[2]['state'] == 'queued'
+        finished = demo.wait_batch(batch['id'], wanted=('completed',))
+        assert all(m['state'] == 'succeeded' for m in finished['members'])
+        # Restart with the set already terminal must keep it explainable.
+        demo.stop(abrupt=True)
+        demo.start()
+        after = demo.get_batch(batch['id'])
+        assert after['state'] == 'completed'
+        return {'workflow': workflow, 'state': 'completed', 'jobIds': [m['jobId'] for m in finished['members']]}
+
+    # batch-capacity: resource failures commit nothing.
+    # Over-budget member: the scale-2 compile exceeds 40m layer pixels, so the
+    # whole two-scale set is refused and neither member exists.
+    huge = heavy_scene(1200, 1200, 8)
+    put(huge, current['revision'])
+    huge_snap = demo.call('POST', '/v1/scenes/emblem/snapshots',
+                          {'expectedRevision': current['revision'] + 1}, 201)
+    demo.call('POST', '/v1/batches', {'snapshotId': huge_snap['id'], 'scales': [1, 2]}, 429,
+              {'Idempotency-Key': 'batch-over-budget'})
+    status = demo.call('GET', '/v1/status')
+    before_jobs = sum(status['jobs'].values())
+    # Queue limit: fill the 64 slots with single jobs that outrun the short
+    # submission burst but drain quickly afterwards, then a batch of two
+    # cannot fit and must leave no half-set behind.
+    queued_doc = heavy_scene(1100, 1100, 8)
+    put(queued_doc, current['revision'] + 1)
+    queued_snap = demo.call('POST', '/v1/scenes/emblem/snapshots',
+                            {'expectedRevision': current['revision'] + 2}, 201)
+    for i in range(64):
+        demo.submit(queued_snap, f'filler-{i:02d}')
+    demo.call('POST', '/v1/batches', {'snapshotId': queued_snap['id'], 'scales': [1, 2]}, 429,
+              {'Idempotency-Key': 'batch-queue-full'})
+    # Rejected batches create no jobs and no receipts that change outcomes.
+    after_status = demo.call('GET', '/v1/status')
+    assert sum(after_status['jobs'].values()) == before_jobs + 64
+    pending = after_status['jobs'].get('queued', 0) + after_status['jobs'].get('running', 0)
+    assert pending == 64
+    # Once capacity frees up, the same semantic request under a fresh key
+    # accepts the complete set atomically.
+    demo.wait_pending_below(63)
+    batch = demo.submit_batch(queued_snap, [1, 2], 'batch-after-drain')
+    assert len(batch['members']) == 2 and batch['state'] == 'active'
+    finished = demo.wait_batch(batch['id'], wanted=('completed', 'settled'), timeout=60)
+    assert all(m['state'] == 'succeeded' for m in finished['members'])
+    return {'workflow': workflow, 'state': 'rejected-then-accepted',
+            'pendingAtLimit': pending}
+
 
 def run(demo, workflow, out):
     d = sample()
@@ -130,6 +327,8 @@ def run(demo, workflow, out):
         return {'workflow': workflow, 'assetDigest': asset['digest'], 'pinnedRender': result['state']}
     current = demo.call('GET', '/v1/scenes/emblem')
     snapshot = demo.call('POST', '/v1/scenes/emblem/snapshots', {'expectedRevision': current['revision']}, 201)
+    if workflow in ('batch-render', 'batch-recover', 'batch-capacity'):
+        return run_batch(demo, workflow, snapshot, current, put)
     if workflow == 'freeze-scene':
         original_digest = snapshot['digest']; d['background'] = '#000000'; put(d, current['revision'])
         assert demo.call('GET', '/v1/snapshots/' + snapshot['id'])['digest'] == original_digest

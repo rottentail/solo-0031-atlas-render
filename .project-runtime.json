@@ -71,6 +71,18 @@
     {
       "workflow_id": "observe-service",
       "command": "python3 scripts/walkthrough.py --workflow observe-service"
+    },
+    {
+      "workflow_id": "batch-render",
+      "command": "python3 scripts/walkthrough.py --workflow batch-render"
+    },
+    {
+      "workflow_id": "batch-recover",
+      "command": "python3 scripts/walkthrough.py --workflow batch-recover"
+    },
+    {
+      "workflow_id": "batch-capacity",
+      "command": "python3 scripts/walkthrough.py --workflow batch-capacity"
     }
   ],
   "environment": {

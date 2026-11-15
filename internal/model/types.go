@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-const FormatVersion = 1
+const FormatVersion = 2
 
 type Point struct {
 	X float64 `json:"x"`
@@ -87,9 +87,24 @@ type Job struct {
 	Attempt    int       `json:"attempt"`
 	Error      string    `json:"error,omitempty"`
 	ArtifactID string    `json:"artifactId,omitempty"`
+	BatchID    string    `json:"batchId,omitempty"`
 	CreatedAt  time.Time `json:"createdAt"`
 	UpdatedAt  time.Time `json:"updatedAt"`
 	Payload    Snapshot  `json:"payload"`
+}
+
+// Batch is an atomically accepted set of same-snapshot render jobs. The whole
+// set is committed in one transaction: either every member exists or none of
+// them does. Its state is derived from the committed member states, so a
+// restart never leaves a batch in an unexplainable state.
+type Batch struct {
+	ID         string    `json:"id"`
+	SnapshotID string    `json:"snapshotId"`
+	State      string    `json:"state"`
+	JobIDs     []string  `json:"jobIds"`
+	Scales     []int     `json:"scales"`
+	CreatedAt  time.Time `json:"createdAt"`
+	UpdatedAt  time.Time `json:"updatedAt"`
 }
 type Artifact struct {
 	ID     string `json:"id"`
@@ -103,7 +118,8 @@ type Artifact struct {
 type Receipt struct {
 	Key         string `json:"key"`
 	Fingerprint string `json:"fingerprint"`
-	JobID       string `json:"jobId"`
+	JobID       string `json:"jobId,omitempty"`
+	BatchID     string `json:"batchId,omitempty"`
 }
 type Event struct {
 	Sequence int       `json:"sequence"`
@@ -118,13 +134,57 @@ type State struct {
 	Snapshots map[string]Snapshot `json:"snapshots"`
 	Jobs      map[string]Job      `json:"jobs"`
 	Artifacts map[string]Artifact `json:"artifacts"`
+	Batches   map[string]Batch    `json:"batches"`
 	Receipts  map[string]Receipt  `json:"receipts"`
 	Events    []Event             `json:"events"`
 	Sequence  int                 `json:"sequence"`
 }
 
 func NewState() State {
-	return State{Version: FormatVersion, Scenes: map[string]Scene{}, Assets: map[string]Asset{}, Snapshots: map[string]Snapshot{}, Jobs: map[string]Job{}, Artifacts: map[string]Artifact{}, Receipts: map[string]Receipt{}}
+	return State{Version: FormatVersion, Scenes: map[string]Scene{}, Assets: map[string]Asset{}, Snapshots: map[string]Snapshot{}, Jobs: map[string]Job{}, Artifacts: map[string]Artifact{}, Batches: map[string]Batch{}, Receipts: map[string]Receipt{}}
+}
+
+// BatchStates are the lifecycle states of a batch.
+const (
+	BatchActive    = "active"    // at least one member is queued or running
+	BatchSettled   = "settled"   // every member reached a terminal state
+	BatchCompleted = "completed" // every member succeeded
+)
+
+// terminalJobState reports whether a job can no longer move on its own.
+func terminalJobState(state string) bool {
+	return state == "succeeded" || state == "failed" || state == "cancelled"
+}
+
+// ReconcileBatches derives every batch state from its committed member jobs
+// and emits audit events on transitions. It must be called inside the same
+// transaction that changes member states, so a batch can never describe a set
+// the jobs do not actually form.
+func (s *State) ReconcileBatches() {
+	for id, b := range s.Batches {
+		next := BatchCompleted
+		for _, jid := range b.JobIDs {
+			j, ok := s.Jobs[jid]
+			if !ok || !terminalJobState(j.State) {
+				next = BatchActive
+				break
+			}
+			if j.State != "succeeded" {
+				next = BatchSettled
+			}
+		}
+		if next == b.State {
+			continue
+		}
+		b.State = next
+		b.UpdatedAt = time.Now().UTC()
+		s.Batches[id] = b
+		if next == BatchActive {
+			s.Emit("batch.reopened", id)
+		} else {
+			s.Emit("batch."+next, id)
+		}
+	}
 }
 func Digest(b []byte) string { h := sha256.Sum256(b); return hex.EncodeToString(h[:]) }
 func CanonicalDigest(v any) string {

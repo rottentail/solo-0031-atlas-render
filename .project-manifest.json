@@ -350,6 +350,61 @@
         "通过存储或渲染结果观察已提交事实"
       ],
       "verification": "python3 scripts/walkthrough.py --workflow observe-service"
+    },
+    {
+      "id": "batch-render",
+      "name": "多尺寸集合的原子提交与混合中断",
+      "entry": "POST /v1/batches",
+      "success": "整组一次承诺、幂等重放不增成员，混合成功与取消后重试最终全部成功",
+      "failure": "预算或容量不足整组拒绝且无半个集合，同键异义冲突",
+      "module_ids": [
+        "httpapi",
+        "service",
+        "engine",
+        "persist",
+        "model"
+      ],
+      "steps": [
+        "经公开HTTP入口原子接受集合和成员任务",
+        "通过集合查询、任务接口和渲染结果观察混合状态转换"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow batch-render"
+    },
+    {
+      "id": "batch-recover",
+      "name": "集合在进程重启后的状态恢复",
+      "entry": "进程启动 Recover",
+      "success": "running成员重新排队，集合从成员事实重新推导并最终完成",
+      "failure": "重启后集合状态与成员不一致",
+      "module_ids": [
+        "engine",
+        "persist",
+        "service",
+        "model"
+      ],
+      "steps": [
+        "SIGKILL中断含集合的服务进程",
+        "重启后核对集合与成员状态并等待完成"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow batch-recover"
+    },
+    {
+      "id": "batch-capacity",
+      "name": "集合的预算与队列容量原子拒绝",
+      "entry": "POST /v1/batches",
+      "success": "超预算或队列满时整组429且不写入任何成员，容量恢复后整组接受",
+      "failure": "失败请求留下半个集合或收据",
+      "module_ids": [
+        "httpapi",
+        "service",
+        "persist",
+        "raster"
+      ],
+      "steps": [
+        "构造超预算集合和64任务满队列",
+        "核对拒绝后任务数量不变，再在容量恢复后接受集合"
+      ],
+      "verification": "python3 scripts/walkthrough.py --workflow batch-capacity"
     }
   ],
   "complexity": {

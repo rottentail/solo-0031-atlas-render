@@ -32,6 +32,9 @@ func (w *Worker) Recover() error {
 				s.Emit("job.recovered", id)
 			}
 		}
+		// Re-derive set states from the recovered members so restart leaves
+		// no batch in an unexplainable state.
+		s.ReconcileBatches()
 		return nil
 	})
 }
@@ -123,6 +126,10 @@ func (w *Worker) step(parent context.Context) error {
 	return w.store.Update(func(s *model.State) error {
 		v := s.Jobs[j.ID]
 		if v.State != "running" || v.Attempt != j.Attempt {
+			// Cancellation or retry committed while rendering: never overwrite
+			// the committed state with a stale or interrupted result, but keep
+			// any batch this member belongs to consistent.
+			s.ReconcileBatches()
 			return nil
 		}
 		v.UpdatedAt = time.Now().UTC()
@@ -134,6 +141,7 @@ func (w *Worker) step(parent context.Context) error {
 				v.Error = e.Error()
 			}
 			s.Jobs[v.ID] = v
+			s.ReconcileBatches()
 			s.Emit("job."+v.State, v.ID)
 			return nil
 		}
@@ -142,6 +150,7 @@ func (w *Worker) step(parent context.Context) error {
 		v.State = "succeeded"
 		v.ArtifactID = a.ID
 		s.Jobs[v.ID] = v
+		s.ReconcileBatches()
 		s.Emit("job.succeeded", v.ID)
 		return nil
 	})

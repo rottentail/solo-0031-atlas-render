@@ -11,7 +11,7 @@ func Validate(s model.State) error {
 	if s.Version != model.FormatVersion {
 		return fmt.Errorf("unsupported state version %d", s.Version)
 	}
-	if s.Scenes == nil || s.Assets == nil || s.Snapshots == nil || s.Jobs == nil || s.Artifacts == nil || s.Receipts == nil {
+	if s.Scenes == nil || s.Assets == nil || s.Snapshots == nil || s.Jobs == nil || s.Artifacts == nil || s.Batches == nil || s.Receipts == nil {
 		return fmt.Errorf("state maps must be present")
 	}
 	for id, v := range s.Scenes {
@@ -48,6 +48,15 @@ func Validate(s model.State) error {
 		if _, ok := s.Snapshots[j.SnapshotID]; !ok {
 			return fmt.Errorf("orphan job %s", id)
 		}
+		if j.BatchID != "" {
+			b, ok := s.Batches[j.BatchID]
+			if !ok {
+				return fmt.Errorf("job %s references missing batch", id)
+			}
+			if !contains(b.JobIDs, id) || b.SnapshotID != j.SnapshotID {
+				return fmt.Errorf("job %s is not a member of its batch", id)
+			}
+		}
 		switch j.State {
 		case "queued", "running", "failed", "cancelled":
 			if j.ArtifactID != "" {
@@ -63,6 +72,42 @@ func Validate(s model.State) error {
 		}
 		if e := ValidateSnapshot(j.Payload); e != nil {
 			return e
+		}
+	}
+	for id, b := range s.Batches {
+		if id != b.ID || !scene.ValidID(id) || len(b.JobIDs) < 1 || len(b.JobIDs) != len(b.Scales) {
+			return fmt.Errorf("invalid batch %s", id)
+		}
+		if b.State != model.BatchActive && b.State != model.BatchSettled && b.State != model.BatchCompleted {
+			return fmt.Errorf("invalid batch state %s", id)
+		}
+		if _, ok := s.Snapshots[b.SnapshotID]; !ok {
+			return fmt.Errorf("orphan batch %s", id)
+		}
+		seenScales := map[int]bool{}
+		active := false
+		for i, jid := range b.JobIDs {
+			j, ok := s.Jobs[jid]
+			if !ok || j.BatchID != id || j.SnapshotID != b.SnapshotID || j.Scale != b.Scales[i] {
+				return fmt.Errorf("batch %s member mismatch", id)
+			}
+			if seenScales[j.Scale] {
+				return fmt.Errorf("batch %s repeats a scale", id)
+			}
+			seenScales[j.Scale] = true
+			if j.State == "queued" || j.State == "running" {
+				active = true
+			}
+		}
+		if active != (b.State == model.BatchActive) {
+			return fmt.Errorf("batch %s state disagrees with its members", id)
+		}
+		if b.State == model.BatchCompleted {
+			for _, jid := range b.JobIDs {
+				if s.Jobs[jid].State != "succeeded" {
+					return fmt.Errorf("completed batch %s has an unsuccessful member", id)
+				}
+			}
 		}
 	}
 	for id, a := range s.Artifacts {
@@ -87,11 +132,33 @@ func Validate(s model.State) error {
 		if key != r.Key || r.Fingerprint == "" {
 			return fmt.Errorf("invalid receipt")
 		}
-		if _, ok := s.Jobs[r.JobID]; !ok {
-			return fmt.Errorf("receipt result missing")
+		targets := 0
+		if r.JobID != "" {
+			if _, ok := s.Jobs[r.JobID]; !ok {
+				return fmt.Errorf("receipt job missing")
+			}
+			targets++
+		}
+		if r.BatchID != "" {
+			if _, ok := s.Batches[r.BatchID]; !ok {
+				return fmt.Errorf("receipt batch missing")
+			}
+			targets++
+		}
+		if targets != 1 {
+			return fmt.Errorf("receipt must target exactly one job or batch")
 		}
 	}
 	return nil
+}
+
+func contains(ids []string, want string) bool {
+	for _, id := range ids {
+		if id == want {
+			return true
+		}
+	}
+	return false
 }
 func ValidateAsset(a model.Asset) error {
 	if model.Digest(a.PNG) != a.Digest {

@@ -41,12 +41,23 @@ func Open(path string) (*Store, error) {
 			s.Close()
 			return nil, fmt.Errorf("invalid persisted JSON: %w", e)
 		}
+		migrate(&s.state)
 		if e = Validate(s.state); e != nil {
 			s.Close()
 			return nil, e
 		}
 	}
 	return s, nil
+}
+
+// migrate upgrades older on-disk formats. Version 1 predates render batches.
+func migrate(s *model.State) {
+	if s.Version == 1 {
+		s.Version = model.FormatVersion
+		if s.Batches == nil {
+			s.Batches = map[string]model.Batch{}
+		}
+	}
 }
 func (s *Store) Close() error {
 	if s.lock == nil {

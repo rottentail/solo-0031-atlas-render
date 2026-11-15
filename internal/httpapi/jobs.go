@@ -38,6 +38,8 @@ func (a API) cancel(w http.ResponseWriter, r *http.Request) {
 		fail(w, e)
 		return
 	}
+	// Best-effort interrupt of an in-flight render; the committed transaction
+	// stays authoritative and the worker re-checks state plus attempt on finish.
 	a.Worker.Cancel(v.ID)
 	v.Payload = model.Snapshot{}
 	write(w, 200, v)
